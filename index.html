@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אקדמיית האחוואנים - שיעור מטורלל: שכבה 4 - שכבת התעבורה</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800;900&family=Assistant:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Day Ops */
+  --bg: #eef2f7;
+  --grid-line: rgba(15, 23, 42, 0.05);
+  --card: #ffffff;
+  --panel-border: #dbe2ec;
+  --text: #0f172a;
+  --text-muted: #5b6b82;
+  --cyan: #0e7490;
+  --cyan-soft: #e0f6fb;
+  --green: #047857;
+  --green-soft: #e1f8ef;
+  --amber: #b45309;
+  --amber-soft: #fdf1dd;
+  --violet: #6d28d9;
+  --violet-soft: #f1e9fc;
+  --shadow: 0 20px 40px -14px rgba(15, 23, 42, 0.14);
+  --radius: 18px;
+}
+
+body.dark {
+  /* Night Ops */
+  --bg: #090d16;
+  --grid-line: rgba(34, 211, 238, 0.06);
+  --card: #10182a;
+  --panel-border: rgba(34, 211, 238, 0.16);
+  --text: #e7edf6;
+  --text-muted: #8493ac;
+  --cyan: #22d3ee;
+  --cyan-soft: rgba(34, 211, 238, 0.12);
+  --green: #34d399;
+  --green-soft: rgba(52, 211, 153, 0.12);
+  --amber: #fbbf24;
+  --amber-soft: rgba(251, 191, 36, 0.12);
+  --violet: #a78bfa;
+  --violet-soft: rgba(167, 139, 250, 0.12);
+  --shadow: 0 20px 50px -14px rgba(0, 0, 0, 0.6);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Assistant', 'Heebo', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 42px 42px;
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-bottom: 60px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.mono { font-family: 'JetBrains Mono', monospace; }
+
+/* ============ HEADER ============ */
+header {
+  position: relative;
+  background: linear-gradient(160deg, #fbf3e2 0%, #f7ecd6 55%, #f9efdb 100%);
+  color: #b91c1c;
+  padding: 34px 20px 46px;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.22);
+}
+
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(185, 28, 28, 0.08), transparent 40%),
+    radial-gradient(circle at 88% 75%, rgba(217, 119, 6, 0.10), transparent 45%);
+  pointer-events: none;
+}
+
+.hero-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 34px;
+  max-width: 1300px;
+  margin: 0 auto;
+  flex-wrap: wrap-reverse;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  max-width: 1300px;
+  margin: 0 auto 30px;
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 18px;
+  border-radius: 11px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.18s ease, opacity 0.18s ease;
+  letter-spacing: 0.2px;
+}
+
+.nav-btn:hover { transform: translateY(-2px); }
+
+.nav-btn.outline {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(185, 28, 28, 0.4);
+  color: #b91c1c;
+}
+
+.nav-btn.solid {
+  background: linear-gradient(120deg, #dc2626, #b91c1c);
+  color: #fff5f0;
+  box-shadow: 0 8px 22px -6px rgba(185, 28, 28, 0.5);
+}
+
+.statusbar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  letter-spacing: 0.4px;
+  color: #b45309;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+
+.statusbar .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b91c1c;
+  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.2);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+.statusbar .sep { opacity: 0.4; }
+
+h1 {
+  position: relative;
+  margin: 8px 0 6px;
+  font-family: 'Rubik', 'Assistant', sans-serif;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: #b91c1c;
+}
+
+header p.subtitle {
+  position: relative;
+  margin: 4px 0 26px;
+  color: #c2410c;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.protocol-row {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.protocol-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #b91c1c;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  padding: 6px 13px;
+  border-radius: 8px;
+  letter-spacing: 0.5px;
+}
+
+/* ============ מבנה כללי ============ */
+.container {
+  width: 92%;
+  max-width: 1300px;
+  margin: 44px auto;
+}
+
+.panel {
+  position: relative;
+  background: var(--card);
+  padding: 30px 30px 28px;
+  margin-bottom: 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+.panel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed var(--panel-border);
+}
+
+.panel-head h2 {
+  color: var(--text);
+  font-family: 'Rubik', 'Assistant', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  color: var(--cyan);
+  background: var(--cyan-soft);
+  border: 1px solid var(--panel-border);
+  padding: 4px 11px;
+  border-radius: 7px;
+  white-space: nowrap;
+}
+
+/* ============ TABS ============ */
+.tabs-nav {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+  border-bottom: 2px solid var(--panel-border);
+  padding-bottom: 12px;
+}
+
+.tab-btn {
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  padding: 12px 20px;
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  background: var(--bg);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tab-btn:hover {
+  background: var(--cyan-soft);
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.tab-btn.active {
+  background: linear-gradient(120deg, #dc2626, #b91c1c);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(185, 28, 28, 0.35);
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.component-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 25px;
+}
+
+.comp-media {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.comp-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+.meta-box {
+  background: var(--bg);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px dashed var(--panel-border);
+  font-size: 14px;
+}
+
+.meta-item:last-child { border-bottom: none; }
+
+.meta-label { font-weight: 700; color: var(--text-muted); }
+.meta-val { font-family: 'JetBrains Mono', monospace; font-weight: 800; color: var(--cyan); }
+
+.comp-details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.comp-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  margin: 0;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-box {
+  background: var(--bg);
+  border-right: 4px solid var(--cyan);
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.section-box h4 {
+  margin: 0 0 8px 0;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  color: var(--cyan);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.section-box p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.spec-card {
+  background: var(--card);
+  border: 1px solid var(--panel-border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.spec-card span {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.spec-card b {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* ============ מבדק ורפלקציה ============ */
+.quiz-q {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--panel-border);
+}
+
+.quiz-q p {
+  font-weight: 800;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.quiz-opt {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14.5px;
+}
+
+.quiz-opt input {
+  margin-left: 8px;
+}
+
+.quiz-feedback {
+  margin-top: 8px;
+  font-weight: 800;
+  font-size: 13.5px;
+  display: none;
+}
+
+.quiz-feedback.correct { color: var(--green); display: block; }
+.quiz-feedback.incorrect { color: #dc2626; display: block; }
+
+.reflection-textarea {
+  width: 100%;
+  min-height: 100px;
+  border-radius: 10px;
+  border: 1px solid var(--panel-border);
+  background: var(--bg);
+  color: var(--text);
+  padding: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+/* ============ כפתור מצב תצוגה ============ */
+.darkBtn {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(185, 28, 28, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 19px;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  color: #b91c1c;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.darkBtn:hover { transform: scale(1.1); }
+
+/* ============ עוזר הפרויקט הצף ============ */
+.bot-widget {
+    position: fixed;
+    bottom: 13px;
+    left: 13px;
+    width: 178px;
+    max-width: calc(100vw - 26px);
+    background: var(--card);
+    color: var(--text);
+    border-radius: 11px;
+    overflow: hidden;
+    box-shadow: 0 11px 24px rgba(0,0,0,0.28);
+    z-index: 9999;
+    animation: floatBot 4s ease-in-out infinite;
+    border: 1px solid var(--panel-border);
+    transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+}
+
+.bot-widget.collapsed {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    animation: none;
+    cursor: pointer;
+}
+
+.bot-widget.collapsed .bot-header, 
+.bot-widget.collapsed .bot-body > *:not(.bot-avatar) {
+    display: none;
+}
+
+.bot-widget.collapsed .bot-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 100%;
+}
+
+.bot-widget.collapsed .bot-avatar {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    border: 2px solid var(--cyan);
+    box-shadow: 0 4px 11px rgba(0,0,0,0.3);
+}
+
+.bot-close {
+    margin-right: auto;
+    background: none;
+    border: none;
+    color: #eaf6fb;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 1;
+    padding: 1px 2px;
+}
+
+.bot-header {
+    background: linear-gradient(135deg, #0b2540, #062a2e);
+    color: #eaf6fb;
+    padding: 8px 10px;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+}
+
+.bot-header .dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
+    animation: pulse 1.8s ease-in-out infinite;
+    flex-shrink: 0;
+}
+
+.bot-body { padding: 11px; }
+
+.bot-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto 7px auto;
+    object-fit: cover;
+    border: 2px solid var(--cyan);
+    box-shadow: 0 0 0 3px var(--cyan-soft);
+}
+
+.bot-body p.greet {
+    margin: 0 0 6px 0;
+    font-weight: 800;
+    text-align: center;
+    font-size: 9px;
+}
+
+.bot-body .lead {
+    font-weight: 600;
+    font-size: 8px;
+    text-align: center;
+    color: var(--text-muted);
+    margin: 0 0 7px;
+}
+
+.bot-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.bot-chip {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 6.5px;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bg);
+    border: 1px solid var(--panel-border);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.bot-btn {
+    display: block;
+    text-align: center;
+    padding: 7px;
+    background: var(--green);
+    color: #06231a;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 800;
+    font-size: 8.5px;
+    font-family: 'JetBrains Mono', monospace;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.bot-btn:hover {
+    opacity: 0.88;
+    transform: scale(1.02);
+}
+
+footer {
+  background: var(--card);
+  border-top: 1px solid var(--panel-border);
+  color: var(--text-muted);
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  text-align: center;
+  padding: 26px;
+  margin-top: 50px;
+  letter-spacing: 0.3px;
+}
+
+@keyframes floatBot {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@media (max-width: 900px) {
+  .component-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 26px; }
+  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
+  .panel { padding: 18px 12px; }
+  .hero-image img { width: 100px; height: 100px; }
+  .tab-btn { width: 100%; justify-content: center; }
+  .bot-avatar { width: 68px; height: 68px; }
+  .bot-widget:not(.collapsed) {
+    width: calc(100vw - 44px);
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<button class="darkBtn" onclick="toggleDark()" title="החלף מצב תצוגה" id="darkToggleBtn">🌙</button>
+
+<header>
+  <nav class="navbar">
+    <a class="nav-btn outline" href="#tabs-section">⚡ עברו ישר למעבדת השכבה</a>
+    <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">🖥️ אקדמיית האחוואנים</a>
+  </nav>
+
+  <div class="hero-row">
+    <div class="hero-image">
+      <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #b91c1c; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2); background: #fff;">
+    </div>
+    <div class="hero-text">
+      <div class="statusbar">
+        <span class="dot"></span>
+        <span>session: transport_layer_mastery</span>
+        <span class="sep">//</span>
+        <span>layer4.osi.local</span>
+        <span class="sep">//</span>
+        <span>TCP/UDP PORT LAB</span>
+      </div>
+      
+      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 8px;">
+        <span style="background: rgba(185, 28, 28, 0.1); color: #b91c1c; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px;">🔥 שיעור מטורלל: שכבה 4 - שכבת התעבורה</span>
+        <h1 style="font-size: 22px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הדאטה מגיע בדיוק לאפליקציה הנכונה?</h1>
+      </div>
+
+      <p class="subtitle" style="font-size: 14px; margin: 4px 0 16px;">מסע עומק בטאבים: מקטעים (Segments), דאטאגרמות (Datagrams), פורטים והקרב הענקים בין TCP ל-UDP!</p>
+      <div class="protocol-row">
+        <span class="protocol-chip">LAYER 4</span>
+        <span class="protocol-chip">TCP</span>
+        <span class="protocol-chip">UDP</span>
+        <span class="protocol-chip">PORTS 1-65535</span>
+        <span class="protocol-chip">SEGMENTATION</span>
+        <span class="protocol-chip">DATAGRAM</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container" id="tabs-section">
+
+  <div class="panel">
+    <div class="panel-head">
+      <h2>🚀 מעבדת שכבת התעבורה (Layer 4) - בחרו טאב ללמידה</h2>
+      <span class="panel-tag mono">TRANSPORT_MODULE_V4.0</span>
+    </div>
+
+    <!-- סרגל הטאבים -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="openTab(event, 'intro')">📦 תפקיד השכבה וחלוקה</button>
+      <button class="tab-btn" onclick="openTab(event, 'ports')">🚪 פורטים ושקעים (Sockets)</button>
+      <button class="tab-btn" onclick="openTab(event, 'tcp')">🤝 פרוטוקול TCP (Segment)</button>
+      <button class="tab-btn" onclick="openTab(event, 'udp')">⚡ פרוטוקול UDP (Datagram)</button>
+      <button class="tab-btn" onclick="openTab(event, 'quiz')">📝 מבדק ידע אינטראקטיבי</button>
+      <button class="tab-btn" onclick="openTab(event, 'reflection')">🧠 רפלקציה אישית</button>
+    </div>
+
+    <!-- TAB 1: תפקיד השכבה -->
+    <div id="intro" class="tab-content active">
+      <div class="component-grid">
+        <div class="comp-media">
+          <img class="comp-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="שכבת התעבורה">
+          <div class="meta-box">
+            <div class="meta-item"><span class="meta-label">שכבת OSI:</span><span class="meta-val">Layer 4 (Transport)</span></div>
+            <div class="meta-item"><span class="meta-label">יחידות PDU:</span><span class="meta-val">Segment / Datagram</span></div>
+            <div class="meta-item"><span class="meta-label">מזהה מרכזי:</span><span class="meta-val">Port Numbers</span></div>
+            <div class="meta-item"><span class="meta-label">יעד תקשורת:</span><span class="meta-val">Process-to-Process</span></div>
+          </div>
+        </div>
+        <div class="comp-details">
+          <h3 class="comp-title">📦 שכבת התעבורה (Transport Layer) - חלוקה למקטעים</h3>
+          
+          <div class="section-box">
+            <h4>⚡ אופן פעולה</h4>
+            <p>שכבה 3 (IP) דואגת להביא את החבילה מהמחשב שלכם למחשב היעד. אבל איך המחשב היעד יודע איזה אפליקציה צריכה לקבל את המידע? פה נכנסת שכבה 4! היא אחראית על תקשורת מקצה לקצה בין תהליכים (Process-to-Process), מקבלת את הקובץ או המידע מהאפליקציה, וחותכת אותו לחתיכות קטנות שנקראות **מקטעים (Segments)** או **דאטאגרמות (Datagrams)**.</p>
+          </div>
+
+          <div class="section-box" style="border-color: var(--green);">
+            <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 4</h4>
+            <div class="spec-grid">
+              <div class="spec-card"><span>סגמנטציה (Segmentation)</span><b>פירוק מידע גדול לחלקים קטנים</b></div>
+              <div class="spec-card"><span>ריבוב (Multiplexing)</span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
+              <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים (Source & Destination)</b></div>
+              <div class="spec-card"><span>בקרת זרימה ושגיאות</span><b>וידוא שהמידע מגיע בשלם ובסדר הנכון</b></div>
+            </div>
+          </div>
+
+          <div class="section-box" style="border-color: var(--amber);">
+            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <p>אם לא היינו מחלקים את המידע למקטעים, קובץ אחד של 1GB שהייתם מורידים היה חוסם את כל כבל הרשת בבית שלכם, ולא הייתם יכולים לשלוח אפילו הודעת וואטסאפ קטנה במקביל!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: פורטים ושקעים -->
+    <div id="ports" class="tab-content">
+      <div class="component-grid">
+        <div class="comp-media">
+          <img class="comp-img" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="פורטים">
+          <div class="meta-box">
+            <div class="meta-item"><span class="meta-label">טווח פורטים:</span><span class="meta-val">0 - 65535</span></div>
+            <div class="meta-item"><span class="meta-label">Well-Known:</span><span class="meta-val">0 - 1023</span></div>
+            <div class="meta-item"><span class="meta-label">Registered:</span><span class="meta-val">1024 - 49151</span></div>
+            <div class="meta-item"><span class="meta-label">Dynamic/Private:</span><span class="meta-val">49152 - 65535</span></div>
+          </div>
+        </div>
+        <div class="comp-details">
+          <h3 class="comp-title">🚪 פורטים (Ports) וסוקטים (Sockets)</h3>
+          
+          <div class="section-box">
+            <h4>⚡ מה זה פורט ומה זה Socket?</h4>
+            <p>פורט הוא מספר לוגי בין 1 ל-65,535 שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת IP יחד עם מספר פורט (למשל: <span class="mono">192.168.1.10:80</span>), מקבלים נקודת קצה יחידה במינה שנקראת **Socket**!</p>
+          </div>
+
+          <div class="section-box" style="border-color: var(--green);">
+            <h4 style="color: var(--green);">🛠️ פורטים מפורסמים שחובה להכיר (Well-Known)</h4>
+            <div class="spec-grid">
+              <div class="spec-card"><span>HTTP / HTTPS</span><b>Port 80 / Port 443</b></div>
+              <div class="spec-card"><span>DNS (תרגום שמות)</span><b>Port 53 (UDP/TCP)</b></div>
+              <div class="spec-card"><span>DHCP (חלוקת IP)</span><b>Port 67 / 68 (UDP)</b></div>
+              <div class="spec-card"><span>SSH / FTP</span><b>Port 22 / Port 21 (TCP)</b></div>
+            </div>
+          </div>
+
+          <div class="section-box" style="border-color: var(--amber);">
+            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <p>כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה (Ephemeral Port למשל 52431) ופונה לפורט יעד מוכר בשרת (למשל 443). ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: TCP -->
+    <div id="tcp" class="tab-content">
+      <div class="component-grid">
+        <div class="comp-media">
+          <img class="comp-img" src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80" alt="פרוטוקול TCP">
+          <div class="meta-box">
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connection-Oriented</span></div>
+            <div class="meta-item"><span class="meta-label">יחידת PDU:</span><span class="meta-val">Segment (מקטע)</span></div>
+            <div class="meta-item"><span class="meta-label">אמינות:</span><span class="meta-val">High (100% Guaranteed)</span></div>
+            <div class="meta-item"><span class="meta-label">מנגנון חיבור:</span><span class="meta-val">3-Way Handshake</span></div>
+          </div>
+        </div>
+        <div class="comp-details">
+          <h3 class="comp-title">🤝 פרוטוקול TCP (Transmission Control Protocol)</h3>
+          
+          <div class="section-box">
+            <h4>⚡ אופן פעולה - אמינות מעל הכל!</h4>
+            <p>TCP הוא פרוטוקול מוכוון חיבור (Connection-Oriented). לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - TCP מזהה זאת משדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, המצעות כספיות, קבצים, מיילים).</p>
+          </div>
+
+          <div class="section-box" style="border-color: var(--green);">
+            <h4 style="color: var(--green);">🛠️ מנגנוני הליבה של TCP</h4>
+            <div class="spec-grid">
+              <div class="spec-card"><span>לחיצת יד משולשת</span><b>SYN ➔ SYN-ACK ➔ ACK</b></div>
+              <div class="spec-card"><span>אישור קבלה</span><b>ACK (Acknowledgment Number)</b></div>
+              <div class="spec-card"><span>בקרת עומסים</span><b>Sliding Window Mechanism</b></div>
+              <div class="spec-card"><span>סיום התקשרות</span><b>FIN ➔ ACK ➔ FIN ➔ ACK</b></div>
+            </div>
+          </div>
+
+          <div class="section-box" style="border-color: var(--amber);">
+            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <p>זוכרים את לחיצת היד? SYN ("אחי אפשר לדבר?"), SYN-ACK ("כן אחי בכיף!"), ACK ("סגור, מתחילים לשלוח!"). בלי 3 הצעדים האלה - אין תקשורת TCP!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 4: UDP -->
+    <div id="udp" class="tab-content">
+      <div class="component-grid">
+        <div class="comp-media">
+          <img class="comp-img" src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="פרוטוקול UDP">
+          <div class="meta-box">
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connectionless</span></div>
+            <div class="meta-item"><span class="meta-label">יחידת PDU:</span><span class="meta-val">Datagram (דאטאגרם)</span></div>
+            <div class="meta-item"><span class="meta-label">מהירות:</span><span class="meta-val">Ultra Fast / Low Overhead</span></div>
+            <div class="meta-item"><span class="meta-label">ערבות להגעה:</span><span class="meta-val">Best-Effort (אין ACK)</span></div>
+          </div>
+        </div>
+        <div class="comp-details">
+          <h3 class="comp-title">⚡ פרוטוקול UDP (User Datagram Protocol)</h3>
+          
+          <div class="section-box">
+            <h4>⚡ אופן פעולה - מהירות שיא, אפס גינונים!</h4>
+            <p>UDP הוא פרוטוקול ללא חיבור (Connectionless). הוא לא מבצע לחיצת יד, לא מבקש אישורי קבלה (ACK) ולא משדר מחדש חבילות שנפלו. הוא פשוט יורה את ה**דאטאגרמות (Datagrams)** לאוויר בשיא המהירות! מתאים ליישומים בזמן אמת שבהם מהירות חשובה יותר מכל פריים בודד שנשמט (משחקי רשת, שיחות זום/וידאו, שידורי לייב, DNS).</p>
+          </div>
+
+          <div class="section-box" style="border-color: var(--green);">
+            <h4 style="color: var(--green);">🛠️ תכונות מפתח של UDP</h4>
+            <div class="spec-grid">
+              <div class="spec-card"><span>Header קל משקל</span><b>8 Bytes בלבד (לעומת 20 Bytes ב-TCP)</b></div>
+              <div class="spec-card"><span>אפס השהיה (Latency)</span><b>אין לחיצת יד בתחילה</b></div>
+              <div class="spec-card"><span>ללא Re-transmission</span><b>חבילה שנפלה - הלכה לבלי שוב</b></div>
+              <div class="spec-card"><span>שימושים נפוצים</span><b>VoIP, Video Streaming, Gaming, DNS</b></div>
+            </div>
+          </div>
+
+          <div class="section-box" style="border-color: var(--amber);">
+            <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
+            <p>בדיחת רשת קלאסית: "הייתי מספר לכם בדיחה על UDP... אבל לא אכפת לי אם ירדתם לסוף דעתי או אם היא בכלל הגיעה אליכם!" 😂</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: מבדק ידע -->
+    <div id="quiz" class="tab-content">
+      <h3 class="comp-title" style="margin-bottom: 20px;">📝 מבדק ידע אינטראקטיבי - שכבה 4</h3>
+      
+      <div class="quiz-q">
+        <p>1. מהי יחידת המידע (PDU) של פרוטוקול TCP בשכבה 4?</p>
+        <label class="quiz-opt"><input type="radio" name="q1" value="a"> Packet (חבילה)</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="b"> Segment (מקטע)</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="c"> Frame (מסגרת)</label>
+        <div id="q1-fb" class="quiz-feedback"></div>
+      </div>
+
+      <div class="quiz-q">
+        <p>2. באיזה פורט משתמש פרוטוקול HTTP לגלישה לא מאובטחת?</p>
+        <label class="quiz-opt"><input type="radio" name="q2" value="a"> Port 443</label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="b"> Port 53</label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="c"> Port 80</label>
+        <div id="q2-fb" class="quiz-feedback"></div>
+      </div>
+
+      <div class="quiz-q">
+        <p>3. איזה פרוטוקול מתאים יותר למשחק מחשב מרובה משתתפים בזמן אמת (FPS/Gaming)?</p>
+        <label class="quiz-opt"><input type="radio" name="q3" value="a"> UDP - בגלל המהירות והיעדר ההשהיה</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="b"> TCP - בגלל שהוא מבטיח שכל ירייה תגיע בוודאות</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="c"> IP - בגלל שהוא עובד בשכבה 3</label>
+        <div id="q3-fb" class="quiz-feedback"></div>
+      </div>
+
+      <button class="nav-btn solid" onclick="checkQuiz()" style="margin-top: 10px;">בדוק תשובות 🎯</button>
+    </div>
+
+    <!-- TAB 6: רפלקציה -->
+    <div id="reflection" class="tab-content">
+      <h3 class="comp-title" style="margin-bottom: 20px;">🧠 רפלקציה וסיכום אישי</h3>
+      
+      <div class="section-box" style="margin-bottom: 20px;">
+        <h4>💭 שאלת מחשבה לבדק בית:</h4>
+        <p>חשבו על אפליקציית Zoom או Discord. באיזה חלקים של האפליקציה לדעתכם עדיף להשתמש ב-TCP (למשל: העברת קבצים בצ'אט) ובאיזה חלקים עדיף להשתמש ב-UDP (למשל: הוידאו והסאונד הבלייב)? הסבירו מדוע!</p>
+      </div>
+
+      <div class="section-box" style="border-color: var(--violet); background: var(--bg);">
+        <h4 style="color: var(--violet);">✍️ התובנות שלי מהשיעור:</h4>
+        <textarea class="reflection-textarea" placeholder="כתבו כאן בקצרה: מה החידוש הכי גדול שלמדתם היום על פורטים, TCP ו-UDP?"></textarea>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 🤖 צומת העוזר הצף -->
+<div class="bot-widget collapsed" id="botWidget" onclick="expandBot(event)">
+    <div class="bot-header" onclick="toggleBot(event)">
+        <span class="dot"></span> <span>NODE: DAN-GPT // ONLINE</span>
+        <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
+    </div>
+
+    <div class="bot-body">
+        <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
+
+        <p class="greet">שלום תלמידים 👋</p>
+        <p class="lead">אני דן GPT, עוזר השיעור והפרויקט שלכם בשכבה 4. אפשר להיעזר בי ב:</p>
+
+        <div class="bot-chips">
+            <span class="bot-chip">TCP vs UDP</span>
+            <span class="bot-chip">Port Numbers</span>
+            <span class="bot-chip">3-Way Handshake</span>
+            <span class="bot-chip">Sockets</span>
+            <span class="bot-chip">Segment</span>
+            <span class="bot-chip">Datagram</span>
+            <span class="bot-chip">Wireshark</span>
+        </div>
+
+        <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
+            $ connect --gem dan-gpt
+        </a>
+    </div>
+</div>
+
+<footer>
+  session: שכבה 4 - שכבת התעבורה // אקדמיית האחוואנים // TCP, UDP, Ports & Sockets // בהצלחה 💪
+</footer>
+
+<script>
+function openTab(evt, tabName) {
+  var i, tabcontent, tablinks;
+  
+  tabcontent = document.getElementsByClassName("tab-content");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].classList.remove("active");
+  }
+
+  tablinks = document.getElementsByClassName("tab-btn");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].classList.remove("active");
+  }
+
+  document.getElementById(tabName).classList.add("active");
+  evt.currentTarget.classList.add("active");
+}
+
+function toggleDark(){
+  document.body.classList.toggle("dark");
+  const btn = document.getElementById("darkToggleBtn");
+  btn.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+}
+
+function toggleBot(evt){
+  evt.stopPropagation();
+  document.getElementById("botWidget").classList.toggle("collapsed");
+}
+
+function expandBot(evt){
+  const widget = document.getElementById("botWidget");
+  if (widget.classList.contains("collapsed")) {
+    widget.classList.remove("collapsed");
+  }
+}
+
+function checkQuiz() {
+  // Q1
+  const q1 = document.querySelector('input[name="q1"]:checked');
+  const q1fb = document.getElementById('q1-fb');
+  if (q1 && q1.value === 'b') {
+    q1fb.textContent = 'Correct! ✅ ב-TCP יחידת המידע נקראת Segment (מקטע).';
+    q1fb.className = 'quiz-feedback correct';
+  } else {
+    q1fb.textContent = 'Incorrect ❌ תשובה נכונה: Segment (מקטע).';
+    q1fb.className = 'quiz-feedback incorrect';
+  }
+
+  // Q2
+  const q2 = document.querySelector('input[name="q2"]:checked');
+  const q2fb = document.getElementById('q2-fb');
+  if (q2 && q2.value === 'c') {
+    q2fb.textContent = 'Correct! ✅ Port 80 מיועד ל-HTTP (Port 443 מיועד ל-HTTPS המאובטח).';
+    q2fb.className = 'quiz-feedback correct';
+  } else {
+    q2fb.textContent = 'Incorrect ❌ תשובה נכונה: Port 80.';
+    q2fb.className = 'quiz-feedback incorrect';
+  }
+
+  // Q3
+  const q3 = document.querySelector('input[name="q3"]:checked');
+  const q3fb = document.getElementById('q3-fb');
+  if (q3 && q3.value === 'a') {
+    q3fb.textContent = 'Correct! ✅ UDP מספק מהירות שיא ללא השהיות של אישורי קבלה.';
+    q3fb.className = 'quiz-feedback correct';
+  } else {
+    q3fb.textContent = 'Incorrect ❌ תשובה נכונה: UDP בשל היעדר השהיה.';
+    q3fb.className = 'quiz-feedback incorrect';
+  }
+}
+</script>
+
+</body>
+</html>
