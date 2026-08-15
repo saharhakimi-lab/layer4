@@ -104,6 +104,10 @@ header::before {
   flex-wrap: wrap-reverse;
 }
 
+.hero-image img {
+  animation: spin 12s linear infinite;
+}
+
 .hero-text {
   flex: 1;
   min-width: 280px;
@@ -662,6 +666,11 @@ footer {
   padding: 26px;
   margin-top: 50px;
   letter-spacing: 0.3px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes floatBot {
