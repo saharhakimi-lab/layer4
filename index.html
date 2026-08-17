@@ -72,6 +72,20 @@ body {
 
 .mono { font-family: 'JetBrains Mono', monospace; }
 
+/* עזרים לטיפול בטקסט אנגלי ומשולב */
+[dir="ltr"] {
+  display: inline-block;
+  direction: ltr;
+  text-align: left;
+}
+
+.eng-term {
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95em;
+}
+
 /* ============ HEADER ============ */
 header {
   position: relative;
@@ -719,7 +733,7 @@ footer {
       <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #b91c1c; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2); background: #fff;">
     </div>
     <div class="hero-text">
-      <div class="statusbar">
+      <div class="statusbar" dir="ltr">
         <span class="dot"></span>
         <span>session: transport_layer_mastery</span>
         <span class="sep">//</span>
@@ -733,8 +747,8 @@ footer {
         <h1 style="font-size: 22px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הדאטה מגיע בדיוק לאפליקציה הנכונה?</h1>
       </div>
 
-      <p class="subtitle" style="font-size: 14px; margin: 4px 0 16px;">מסע עומק בטאבים: מקטעים (Segments), דאטאגרמות (Datagrams), פורטים והקרב הענקים בין TCP ל-UDP!</p>
-      <div class="protocol-row">
+      <p class="subtitle" style="font-size: 14px; margin: 4px 0 16px;">מסע עומק בטאבים: מקטעים (<span class="eng-term">Segments</span>), דאטאגרמות (<span class="eng-term">Datagrams</span>), פורטים והקרב הענקים בין <span class="eng-term">TCP</span> ל-<span class="eng-term">UDP</span>!</p>
+      <div class="protocol-row" dir="ltr">
         <span class="protocol-chip">LAYER 4</span>
         <span class="protocol-chip">TCP</span>
         <span class="protocol-chip">UDP</span>
@@ -750,16 +764,16 @@ footer {
 
   <div class="panel">
     <div class="panel-head">
-      <h2>🚀 מעבדת שכבת התעבורה (Layer 4) - בחרו טאב ללמידה</h2>
-      <span class="panel-tag mono">TRANSPORT_MODULE_V4.0</span>
+      <h2>🚀 מעבדת שכבת התעבורה (<span class="eng-term">Layer 4</span>) - בחרו טאב ללמידה</h2>
+      <span class="panel-tag mono" dir="ltr">TRANSPORT_MODULE_V4.0</span>
     </div>
 
     <!-- סרגל הטאבים -->
     <div class="tabs-nav">
       <button class="tab-btn active" onclick="openTab(event, 'intro')">📦 תפקיד השכבה וחלוקה</button>
-      <button class="tab-btn" onclick="openTab(event, 'ports')">🚪 פורטים ושקעים (Sockets)</button>
-      <button class="tab-btn" onclick="openTab(event, 'tcp')">🤝 פרוטוקול TCP (Segment)</button>
-      <button class="tab-btn" onclick="openTab(event, 'udp')">⚡ פרוטוקול UDP (Datagram)</button>
+      <button class="tab-btn" onclick="openTab(event, 'ports')">🚪 פורטים ושקעים (<span class="eng-term">Sockets</span>)</button>
+      <button class="tab-btn" onclick="openTab(event, 'tcp')">🤝 פרוטוקול <span class="eng-term">TCP</span> (<span class="eng-term">Segment</span>)</button>
+      <button class="tab-btn" onclick="openTab(event, 'udp')">⚡ פרוטוקול <span class="eng-term">UDP</span> (<span class="eng-term">Datagram</span>)</button>
       <button class="tab-btn" onclick="openTab(event, 'quiz')">📝 מבדק ידע אינטראקטיבי</button>
       <button class="tab-btn" onclick="openTab(event, 'reflection')">🧠 רפלקציה אישית</button>
     </div>
@@ -770,33 +784,33 @@ footer {
         <div class="comp-media">
           <img class="comp-img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="שכבת התעבורה">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">שכבת OSI:</span><span class="meta-val">Layer 4 (Transport)</span></div>
-            <div class="meta-item"><span class="meta-label">יחידות PDU:</span><span class="meta-val">Segment / Datagram</span></div>
-            <div class="meta-item"><span class="meta-label">מזהה מרכזי:</span><span class="meta-val">Port Numbers</span></div>
-            <div class="meta-item"><span class="meta-label">יעד תקשורת:</span><span class="meta-val">Process-to-Process</span></div>
+            <div class="meta-item"><span class="meta-label">שכבת <span class="eng-term">OSI</span>:</span><span class="meta-val" dir="ltr">Layer 4 (Transport)</span></div>
+            <div class="meta-item"><span class="meta-label">יחידות <span class="eng-term">PDU</span>:</span><span class="meta-val" dir="ltr">Segment / Datagram</span></div>
+            <div class="meta-item"><span class="meta-label">מזהה מרכזי:</span><span class="meta-val" dir="ltr">Port Numbers</span></div>
+            <div class="meta-item"><span class="meta-label">יעד תקשורת:</span><span class="meta-val" dir="ltr">Process-to-Process</span></div>
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">📦 שכבת התעבורה (Transport Layer) - חלוקה למקטעים</h3>
+          <h3 class="comp-title">📦 שכבת התעבורה (<span class="eng-term">Transport Layer</span>) - חלוקה למקטעים</h3>
           
           <div class="section-box">
             <h4>⚡ אופן פעולה</h4>
-            <p>שכבה 3 (IP) דואגת להביא את החבילה מהמחשב שלכם למחשב היעד. אבל איך המחשב היעד יודע איזה אפליקציה צריכה לקבל את המידע? פה נכנסת שכבה 4! היא אחראית על תקשורת מקצה לקצה בין תהליכים (Process-to-Process), מקבלת את הקובץ או המידע מהאפליקציה, וחותכת אותו לחתיכות קטנות שנקראות **מקטעים (Segments)** או **דאטאגרמות (Datagrams)**.</p>
+            <p>שכבה 3 (<span class="eng-term">IP</span>) דואגת להביא את החבילה מהמחשב שלכם למחשב היעד. אבל איך המחשב היעד יודע איזה אפליקציה צריכה לקבל את המידע? פה נכנסת שכבה 4! היא אחראית על תקשורת מקצה לקצה בין תהליכים (<span class="eng-term">Process-to-Process</span>), מקבלת את הקובץ או המידע מהאפליקציה, וחותכת אותו לחתיכות קטנות שנקראות <strong>מקטעים (<span class="eng-term">Segments</span>)</strong> או <strong>דאטאגרמות (<span class="eng-term">Datagrams</span>)</strong>.</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 4</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>סגמנטציה (Segmentation)</span><b>פירוק מידע גדול לחלקים קטנים</b></div>
-              <div class="spec-card"><span>ריבוב (Multiplexing)</span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
-              <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים (Source & Destination)</b></div>
+              <div class="spec-card"><span>סגמנטציה (<span class="eng-term">Segmentation</span>)</span><b>פירוק מידע גדול לחלקים קטנים</b></div>
+              <div class="spec-card"><span>ריבוב (<span class="eng-term">Multiplexing</span>)</span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
+              <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים (<span class="eng-term">Source & Destination</span>)</b></div>
               <div class="spec-card"><span>בקרת זרימה ושגיאות</span><b>וידוא שהמידע מגיע בשלם ובסדר הנכון</b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
-            <p>אם לא היינו מחלקים את המידע למקטעים, קובץ אחד של 1GB שהייתם מורידים היה חוסם את כל כבל הרשת בבית שלכם, ולא הייתם יכולים לשלוח אפילו הודעת וואטסאפ קטנה במקביל!</p>
+            <p>אם לא היינו מחלקים את המידע למקטעים, קובץ אחד של <span class="eng-term">1GB</span> שהייתם מורידים היה חוסם את כל כבל הרשת בבית שלכם, ולא הייתם יכולים לשלוח אפילו הודעת וואטסאפ קטנה במקביל!</p>
           </div>
         </div>
       </div>
@@ -808,33 +822,33 @@ footer {
         <div class="comp-media">
           <img class="comp-img" src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=600&q=80" alt="פורטים">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">טווח פורטים:</span><span class="meta-val">0 - 65535</span></div>
-            <div class="meta-item"><span class="meta-label">Well-Known:</span><span class="meta-val">0 - 1023</span></div>
-            <div class="meta-item"><span class="meta-label">Registered:</span><span class="meta-val">1024 - 49151</span></div>
-            <div class="meta-item"><span class="meta-label">Dynamic/Private:</span><span class="meta-val">49152 - 65535</span></div>
+            <div class="meta-item"><span class="meta-label">טווח פורטים:</span><span class="meta-val" dir="ltr">0 - 65535</span></div>
+            <div class="meta-item"><span class="meta-label"><span class="eng-term">Well-Known</span>:</span><span class="meta-val" dir="ltr">0 - 1023</span></div>
+            <div class="meta-item"><span class="meta-label"><span class="eng-term">Registered</span>:</span><span class="meta-val" dir="ltr">1024 - 49151</span></div>
+            <div class="meta-item"><span class="meta-label"><span class="eng-term">Dynamic/Private</span>:</span><span class="meta-val" dir="ltr">49152 - 65535</span></div>
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🚪 פורטים (Ports) וסוקטים (Sockets)</h3>
+          <h3 class="comp-title">🚪 פורטים (<span class="eng-term">Ports</span>) וסוקטים (<span class="eng-term">Sockets</span>)</h3>
           
           <div class="section-box">
-            <h4>⚡ מה זה פורט ומה זה Socket?</h4>
-            <p>פורט הוא מספר לוגי בין 1 ל-65,535 שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת IP יחד עם מספר פורט (למשל: <span class="mono">192.168.1.10:80</span>), מקבלים נקודת קצה יחידה במינה שנקראת **Socket**!</p>
+            <h4>⚡ מה זה פורט ומה זה <span class="eng-term">Socket</span>?</h4>
+            <p>פורט הוא מספר לוגי בין 1 ל-65,535 שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת <span class="eng-term">IP</span> יחד עם מספר פורט (למשל: <span class="mono" dir="ltr">192.168.1.10:80</span>), מקבלים נקודת קצה יחידה במינה שנקראת <strong><span class="eng-term">Socket</span></strong>!</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ פורטים מפורסמים שחובה להכיר (Well-Known)</h4>
+            <h4 style="color: var(--green);">🛠️ פורטים מפורסמים שחובה להכיר (<span class="eng-term">Well-Known</span>)</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>HTTP / HTTPS</span><b>Port 80 / Port 443</b></div>
-              <div class="spec-card"><span>DNS (תרגום שמות)</span><b>Port 53 (UDP/TCP)</b></div>
-              <div class="spec-card"><span>DHCP (חלוקת IP)</span><b>Port 67 / 68 (UDP)</b></div>
-              <div class="spec-card"><span>SSH / FTP</span><b>Port 22 / Port 21 (TCP)</b></div>
+              <div class="spec-card"><span><span class="eng-term">HTTP / HTTPS</span></span><b><span dir="ltr">Port 80 / Port 443</span></b></div>
+              <div class="spec-card"><span><span class="eng-term">DNS</span> (תרגום שמות)</span><b><span dir="ltr">Port 53 (UDP/TCP)</span></b></div>
+              <div class="spec-card"><span><span class="eng-term">DHCP</span> (חלוקת <span class="eng-term">IP</span>)</span><b><span dir="ltr">Port 67 / 68 (UDP)</span></b></div>
+              <div class="spec-card"><span><span class="eng-term">SSH / FTP</span></span><b><span dir="ltr">Port 22 / Port 21 (TCP)</span></b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
-            <p>כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה (Ephemeral Port למשל 52431) ופונה לפורט יעד מוכר בשרת (למשל 443). ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!</p>
+            <p>כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה (<span class="eng-term">Ephemeral Port</span> למשל 52431) ופונה לפורט יעד מוכר בשרת (למשל 443). ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!</p>
           </div>
         </div>
       </div>
@@ -846,33 +860,33 @@ footer {
         <div class="comp-media">
           <img class="comp-img" src="https://images.unsplash.com/photo-1587831990711-23ca6441447b?auto=format&fit=crop&w=600&q=80" alt="פרוטוקול TCP">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connection-Oriented</span></div>
-            <div class="meta-item"><span class="meta-label">יחידת PDU:</span><span class="meta-val">Segment (מקטע)</span></div>
-            <div class="meta-item"><span class="meta-label">אמינות:</span><span class="meta-val">High (100% Guaranteed)</span></div>
-            <div class="meta-item"><span class="meta-label">מנגנון חיבור:</span><span class="meta-val">3-Way Handshake</span></div>
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val" dir="ltr">Connection-Oriented</span></div>
+            <div class="meta-item"><span class="meta-label">יחידת <span class="eng-term">PDU</span>:</span><span class="meta-val" dir="ltr">Segment</span></div>
+            <div class="meta-item"><span class="meta-label">אמינות:</span><span class="meta-val" dir="ltr">High (100% Guaranteed)</span></div>
+            <div class="meta-item"><span class="meta-label">מנגנון חיבור:</span><span class="meta-val" dir="ltr">3-Way Handshake</span></div>
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🤝 פרוטוקול TCP (Transmission Control Protocol)</h3>
+          <h3 class="comp-title">🤝 פרוטוקול <span class="eng-term">TCP</span> (<span class="eng-term">Transmission Control Protocol</span>)</h3>
           
           <div class="section-box">
             <h4>⚡ אופן פעולה - אמינות מעל הכל!</h4>
-            <p>TCP הוא פרוטוקול מוכוון חיבור (Connection-Oriented). לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - TCP מזהה זאת משדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, המצעות כספיות, קבצים, מיילים).</p>
+            <p><span class="eng-term">TCP</span> הוא פרוטוקול מוכוון חיבור (<span class="eng-term">Connection-Oriented</span>). לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="eng-term">TCP</span> מזהה זאת משדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, המצעות כספיות, קבצים, מיילים).</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ מנגנוני הליבה של TCP</h4>
+            <h4 style="color: var(--green);">🛠️ מנגנוני הליבה של <span class="eng-term">TCP</span></h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>לחיצת יד משולשת</span><b>SYN ➔ SYN-ACK ➔ ACK</b></div>
-              <div class="spec-card"><span>אישור קבלה</span><b>ACK (Acknowledgment Number)</b></div>
-              <div class="spec-card"><span>בקרת עומסים</span><b>Sliding Window Mechanism</b></div>
-              <div class="spec-card"><span>סיום התקשרות</span><b>FIN ➔ ACK ➔ FIN ➔ ACK</b></div>
+              <div class="spec-card"><span>לחיצת יד משולשת</span><b dir="ltr">SYN ➔ SYN-ACK ➔ ACK</b></div>
+              <div class="spec-card"><span>אישור קבלה</span><b><span class="eng-term">ACK</span> (<span class="eng-term">Acknowledgment Number</span>)</b></div>
+              <div class="spec-card"><span>בקרת עומסים</span><b><span class="eng-term">Sliding Window Mechanism</span></b></div>
+              <div class="spec-card"><span>סיום התקשרות</span><b dir="ltr">FIN ➔ ACK ➔ FIN ➔ ACK</b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
-            <p>זוכרים את לחיצת היד? SYN ("אחי אפשר לדבר?"), SYN-ACK ("כן אחי בכיף!"), ACK ("סגור, מתחילים לשלוח!"). בלי 3 הצעדים האלה - אין תקשורת TCP!</p>
+            <p>זוכרים את לחיצת היד? <span class="eng-term">SYN</span> ("אחי אפשר לדבר?"), <span class="eng-term">SYN-ACK</span> ("כן אחי בכיף!"), <span class="eng-term">ACK</span> ("סגור, מתחילים לשלוח!"). בלי 3 הצעדים האלה - אין תקשורת <span class="eng-term">TCP</span>!</p>
           </div>
         </div>
       </div>
@@ -884,33 +898,33 @@ footer {
         <div class="comp-media">
           <img class="comp-img" src="https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=600&q=80" alt="פרוטוקול UDP">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connectionless</span></div>
-            <div class="meta-item"><span class="meta-label">יחידת PDU:</span><span class="meta-val">Datagram (דאטאגרם)</span></div>
-            <div class="meta-item"><span class="meta-label">מהירות:</span><span class="meta-val">Ultra Fast / Low Overhead</span></div>
-            <div class="meta-item"><span class="meta-label">ערבות להגעה:</span><span class="meta-val">Best-Effort (אין ACK)</span></div>
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val" dir="ltr">Connectionless</span></div>
+            <div class="meta-item"><span class="meta-label">יחידת <span class="eng-term">PDU</span>:</span><span class="meta-val" dir="ltr">Datagram</span></div>
+            <div class="meta-item"><span class="meta-label">מהירות:</span><span class="meta-val" dir="ltr">Ultra Fast / Low Overhead</span></div>
+            <div class="meta-item"><span class="meta-label">ערבות להגעה:</span><span class="meta-val" dir="ltr">Best-Effort (אין ACK)</span></div>
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">⚡ פרוטוקול UDP (User Datagram Protocol)</h3>
+          <h3 class="comp-title">⚡ פרוטוקול <span class="eng-term">UDP</span> (<span class="eng-term">User Datagram Protocol</span>)</h3>
           
           <div class="section-box">
             <h4>⚡ אופן פעולה - מהירות שיא, אפס גינונים!</h4>
-            <p>UDP הוא פרוטוקול ללא חיבור (Connectionless). הוא לא מבצע לחיצת יד, לא מבקש אישורי קבלה (ACK) ולא משדר מחדש חבילות שנפלו. הוא פשוט יורה את ה**דאטאגרמות (Datagrams)** לאוויר בשיא המהירות! מתאים ליישומים בזמן אמת שבהם מהירות חשובה יותר מכל פריים בודד שנשמט (משחקי רשת, שיחות זום/וידאו, שידורי לייב, DNS).</p>
+            <p><span class="eng-term">UDP</span> הוא פרוטוקול ללא חיבור (<span class="eng-term">Connectionless</span>). הוא לא מבצע לחיצת יד, לא מבקש אישורי קבלה (<span class="eng-term">ACK</span>) ולא משדר מחדש חבילות שנפלו. הוא פשוט יורה את ה<strong>דאטאגרמות (<span class="eng-term">Datagrams</span>)</strong> לאוויר בשיא המהירות! מתאים ליישומים בזמן אמת שבהם מהירות חשובה יותר מכל פריים בודד שנשמט (משחקי רשת, שיחות זום/וידאו, שידורי לייב, <span class="eng-term">DNS</span>).</p>
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ תכונות מפתח של UDP</h4>
+            <h4 style="color: var(--green);">🛠️ תכונות מפתח של <span class="eng-term">UDP</span></h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>Header קל משקל</span><b>8 Bytes בלבד (לעומת 20 Bytes ב-TCP)</b></div>
-              <div class="spec-card"><span>אפס השהיה (Latency)</span><b>אין לחיצת יד בתחילה</b></div>
-              <div class="spec-card"><span>ללא Re-transmission</span><b>חבילה שנפלה - הלכה לבלי שוב</b></div>
-              <div class="spec-card"><span>שימושים נפוצים</span><b>VoIP, Video Streaming, Gaming, DNS</b></div>
+              <div class="spec-card"><span><span class="eng-term">Header</span> קל משקל</span><b><span dir="ltr">8 Bytes</span> בלבד (לעומת <span dir="ltr">20 Bytes</span> ב-<span class="eng-term">TCP</span>)</b></div>
+              <div class="spec-card"><span>אפס השהיה (<span class="eng-term">Latency</span>)</span><b>אין לחיצת יד בתחילה</b></div>
+              <div class="spec-card"><span>ללא <span class="eng-term">Re-transmission</span></span><b>חבילה שנפלה - הלכה לבלי שוב</b></div>
+              <div class="spec-card"><span>שימושים נפוצים</span><b><span dir="ltr">VoIP, Video Streaming, Gaming, DNS</span></b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
-            <p>בדיחת רשת קלאסית: "הייתי מספר לכם בדיחה על UDP... אבל לא אכפת לי אם ירדתם לסוף דעתי או אם היא בכלל הגיעה אליכם!" 😂</p>
+            <p>בדיחת רשת קלאסית: "הייתי מספר לכם בדיחה על <span class="eng-term">UDP</span>... אבל לא אכפת לי אם ירדתם לסוף דעתי או אם היא בכלל הגיעה אליכם!" 😂</p>
           </div>
         </div>
       </div>
@@ -921,26 +935,26 @@ footer {
       <h3 class="comp-title" style="margin-bottom: 20px;">📝 מבדק ידע אינטראקטיבי - שכבה 4</h3>
       
       <div class="quiz-q">
-        <p>1. מהי יחידת המידע (PDU) של פרוטוקול TCP בשכבה 4?</p>
-        <label class="quiz-opt"><input type="radio" name="q1" value="a"> Packet (חבילה)</label>
-        <label class="quiz-opt"><input type="radio" name="q1" value="b"> Segment (מקטע)</label>
-        <label class="quiz-opt"><input type="radio" name="q1" value="c"> Frame (מסגרת)</label>
+        <p>1. מהי יחידת המידע (<span class="eng-term">PDU</span>) של פרוטוקול <span class="eng-term">TCP</span> בשכבה 4?</p>
+        <label class="quiz-opt"><input type="radio" name="q1" value="a"> <span class="eng-term">Packet</span> (חבילה)</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="b"> <span class="eng-term">Segment</span> (מקטע)</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="c"> <span class="eng-term">Frame</span> (מסגרת)</label>
         <div id="q1-fb" class="quiz-feedback"></div>
       </div>
 
       <div class="quiz-q">
-        <p>2. באיזה פורט משתמש פרוטוקול HTTP לגלישה לא מאובטחת?</p>
-        <label class="quiz-opt"><input type="radio" name="q2" value="a"> Port 443</label>
-        <label class="quiz-opt"><input type="radio" name="q2" value="b"> Port 53</label>
-        <label class="quiz-opt"><input type="radio" name="q2" value="c"> Port 80</label>
+        <p>2. באיזה פורט משתמש פרוטוקול <span class="eng-term">HTTP</span> לגלישה לא מאובטחת?</p>
+        <label class="quiz-opt"><input type="radio" name="q2" value="a"> <span dir="ltr">Port 443</span></label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="b"> <span dir="ltr">Port 53</span></label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="c"> <span dir="ltr">Port 80</span></label>
         <div id="q2-fb" class="quiz-feedback"></div>
       </div>
 
       <div class="quiz-q">
-        <p>3. איזה פרוטוקול מתאים יותר למשחק מחשב מרובה משתתפים בזמן אמת (FPS/Gaming)?</p>
-        <label class="quiz-opt"><input type="radio" name="q3" value="a"> UDP - בגלל המהירות והיעדר ההשהיה</label>
-        <label class="quiz-opt"><input type="radio" name="q3" value="b"> TCP - בגלל שהוא מבטיח שכל ירייה תגיע בוודאות</label>
-        <label class="quiz-opt"><input type="radio" name="q3" value="c"> IP - בגלל שהוא עובד בשכבה 3</label>
+        <p>3. איזה פרוטוקול מתאים יותר למשחק מחשב מרובה משתתפים בזמן אמת (<span class="eng-term">FPS/Gaming</span>)?</p>
+        <label class="quiz-opt"><input type="radio" name="q3" value="a"> <span class="eng-term">UDP</span> - בגלל המהירות והיעדר ההשהיה</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="b"> <span class="eng-term">TCP</span> - בגלל שהוא מבטיח שכל ירייה תגיע בוודאות</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="c"> <span class="eng-term">IP</span> - בגלל שהוא עובד בשכבה 3</label>
         <div id="q3-fb" class="quiz-feedback"></div>
       </div>
 
@@ -953,7 +967,7 @@ footer {
       
       <div class="section-box" style="margin-bottom: 20px;">
         <h4>💭 שאלת מחשבה לבדק בית:</h4>
-        <p>חשבו על אפליקציית Zoom או Discord. באיזה חלקים של האפליקציה לדעתכם עדיף להשתמש ב-TCP (למשל: העברת קבצים בצ'אט) ובאיזה חלקים עדיף להשתמש ב-UDP (למשל: הוידאו והסאונד הבלייב)? הסבירו מדוע!</p>
+        <p>חשבו על אפליקציית <span class="eng-term">Zoom</span> או <span class="eng-term">Discord</span>. באיזה חלקים של האפליקציה לדעתכם עדיף להשתמש ב-<span class="eng-term">TCP</span> (למשל: העברת קבצים בצ'אט) ובאיזה חלקים עדיף להשתמש ב-<span class="eng-term">UDP</span> (למשל: הוידאו והסאונד הבלייב)? הסבירו מדוע!</p>
       </div>
 
       <div class="section-box" style="border-color: var(--violet); background: var(--bg);">
@@ -968,7 +982,7 @@ footer {
 
 <!-- 🤖 צומת העוזר הצף -->
 <div class="bot-widget collapsed" id="botWidget" onclick="expandBot(event)">
-    <div class="bot-header" onclick="toggleBot(event)">
+    <div class="bot-header" onclick="toggleBot(event)" dir="ltr">
         <span class="dot"></span> <span>NODE: DAN-GPT // ONLINE</span>
         <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
     </div>
@@ -977,9 +991,10 @@ footer {
         <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
 
         <p class="greet">שלום תלמידים 👋</p>
-        <p class="lead">אני דן GPT, עוזר השיעור והפרויקט שלכם בשכבה 4. אפשר להיעזר בי ב:</p>
 
-        <div class="bot-chips">
+        <p class="lead">אני דן <span class="eng-term">GPT</span>, עוזר השיעור והפרויקט שלכם בשכבה 4. אפשר להיעזר בי ב:</p>
+
+        <div class="bot-chips" dir="ltr">
             <span class="bot-chip">TCP vs UDP</span>
             <span class="bot-chip">Port Numbers</span>
             <span class="bot-chip">3-Way Handshake</span>
@@ -989,14 +1004,14 @@ footer {
             <span class="bot-chip">Wireshark</span>
         </div>
 
-        <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
+        <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener" dir="ltr">
             $ connect --gem dan-gpt
         </a>
     </div>
 </div>
 
-<footer>
-  session: שכבה 4 - שכבת התעבורה // אקדמיית האחוואנים // TCP, UDP, Ports & Sockets // בהצלחה 💪
+<footer dir="ltr">
+  session: layer 4 - transport layer // ahvanim academy // TCP, UDP, Ports & Sockets // good luck 💪
 </footer>
 
 <script>
@@ -1040,10 +1055,10 @@ function checkQuiz() {
   const q1 = document.querySelector('input[name="q1"]:checked');
   const q1fb = document.getElementById('q1-fb');
   if (q1 && q1.value === 'b') {
-    q1fb.textContent = 'Correct! ✅ ב-TCP יחידת המידע נקראת Segment (מקטע).';
+    q1fb.innerHTML = 'Correct! ✅ ב-<span class="eng-term">TCP</span> יחידת המידע נקראת <span class="eng-term">Segment</span> (מקטע).';
     q1fb.className = 'quiz-feedback correct';
   } else {
-    q1fb.textContent = 'Incorrect ❌ תשובה נכונה: Segment (מקטע).';
+    q1fb.innerHTML = 'Incorrect ❌ תשובה נכונה: <span class="eng-term">Segment</span> (מקטע).';
     q1fb.className = 'quiz-feedback incorrect';
   }
 
@@ -1051,10 +1066,10 @@ function checkQuiz() {
   const q2 = document.querySelector('input[name="q2"]:checked');
   const q2fb = document.getElementById('q2-fb');
   if (q2 && q2.value === 'c') {
-    q2fb.textContent = 'Correct! ✅ Port 80 מיועד ל-HTTP (Port 443 מיועד ל-HTTPS המאובטח).';
+    q2fb.innerHTML = 'Correct! ✅ <span dir="ltr">Port 80</span> מיועד ל-<span class="eng-term">HTTP</span> (<span dir="ltr">Port 443</span> מיועד ל-<span class="eng-term">HTTPS</span> המאובטח).';
     q2fb.className = 'quiz-feedback correct';
   } else {
-    q2fb.textContent = 'Incorrect ❌ תשובה נכונה: Port 80.';
+    q2fb.innerHTML = 'Incorrect ❌ תשובה נכונה: <span dir="ltr">Port 80</span>.';
     q2fb.className = 'quiz-feedback incorrect';
   }
 
@@ -1062,10 +1077,10 @@ function checkQuiz() {
   const q3 = document.querySelector('input[name="q3"]:checked');
   const q3fb = document.getElementById('q3-fb');
   if (q3 && q3.value === 'a') {
-    q3fb.textContent = 'Correct! ✅ UDP מספק מהירות שיא ללא השהיות של אישורי קבלה.';
+    q3fb.innerHTML = 'Correct! ✅ <span class="eng-term">UDP</span> מספק מהירות שיא ללא השהיות של אישורי קבלה.';
     q3fb.className = 'quiz-feedback correct';
   } else {
-    q3fb.textContent = 'Incorrect ❌ תשובה נכונה: UDP בשל היעדר השהיה.';
+    q3fb.innerHTML = 'Incorrect ❌ תשובה נכונה: <span class="eng-term">UDP</span> בשל היעדר השהיה.';
     q3fb.className = 'quiz-feedback incorrect';
   }
 }
