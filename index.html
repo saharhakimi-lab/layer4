@@ -70,11 +70,21 @@ body {
   border-radius: 4px;
 }
 
-/* Bi-directional Text Helpers */
+/* Bi-directional & Framed Text Helpers */
 .en {
   direction: ltr;
   unicode-bidi: isolate;
   display: inline-block;
+  padding: 1px 7px;
+  margin: 0 2px;
+  background: var(--cyan-soft);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: var(--cyan);
+  vertical-align: middle;
 }
 
 .mono {
@@ -322,6 +332,12 @@ header p.subtitle {
   box-shadow: 0 6px 16px rgba(185, 28, 28, 0.35);
 }
 
+.tab-btn.active .en {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
 .tab-content {
   display: none;
   animation: fadeIn 0.3s ease-in-out;
@@ -422,7 +438,7 @@ header p.subtitle {
 .section-box p {
   margin: 0;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.8;
   font-weight: 600;
   color: var(--text);
 }
@@ -442,10 +458,9 @@ header p.subtitle {
 
 .spec-card span {
   display: block;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
+  font-size: 12px;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .spec-card b {
@@ -828,8 +843,8 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ תפקידים מרכזיים בשכבה 4</h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>סגמנטציה <span class="en">Segmentation</span></span><b>פירוק מידע גדול לחלקים קטנים</b></div>
-              <div class="spec-card"><span>ריבוב <span class="en">Multiplexing</span></span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
+              <div class="spec-card"><span><span class="en">Segmentation</span></span><b>פירוק מידע גדול לחלקים קטנים</b></div>
+              <div class="spec-card"><span><span class="en">Multiplexing</span></span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
               <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים <span class="en">Source & Destination</span></b></div>
               <div class="spec-card"><span>בקרת זרימה ושגיאות</span><b>וידוא שהמידע מגיע בשלם ובסדר הנכון</b></div>
             </div>
@@ -868,19 +883,19 @@ footer {
           </div>
 
           <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ פורטים מפורסמים שחובה להכיר <span class="en">Well-Known</span></h4>
+            <h4 style="color: var(--green);">🛠️ פורטים מפורסמים שחובה להכיר <span class="en">Well-Known Ports</span></h4>
             <div class="spec-grid">
-              <div class="spec-card"><span><span class="en">HTTP / HTTPS</span></span><b>Port 80 / Port 443</b></div>
-              <div class="spec-card"><span><span class="en">DNS</span> תרגום שמות</span><b>Port 53 - UDP/TCP</b></div>
-              <div class="spec-card"><span><span class="en">DHCP</span> חלוקת IP</span><b>Port 67 / 68 - UDP</b></div>
-              <div class="spec-card"><span><span class="en">SSH / FTP</span></span><b>Port 22 / Port 21 - TCP</b></div>
+              <div class="spec-card"><span><span class="en">HTTP / HTTPS</span></span><b><span class="en">Port 80</span> / <span class="en">Port 443</span></b></div>
+              <div class="spec-card"><span><span class="en">DNS</span> תרגום שמות</span><b><span class="en">Port 53</span> - <span class="en">UDP/TCP</span></b></div>
+              <div class="spec-card"><span><span class="en">DHCP</span> חלוקת <span class="en">IP</span></span><b><span class="en">Port 67 / 68</span> - <span class="en">UDP</span></b></div>
+              <div class="spec-card"><span><span class="en">SSH / FTP</span></span><b><span class="en">Port 22</span> / <span class="en">Port 21</span> - <span class="en">TCP</span></b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
             <h4 style="color: var(--amber);">🔥 טיפ מטורלל של האחוואנים</h4>
             <p>
-              כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה <span class="en">Ephemeral Port</span> למשל 52431 ופונה לפורט יעד מוכר בשרת למשל 443. ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!
+              כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה <span class="en">Ephemeral Port</span> למשל <span class="en">52431</span> ופונה לפורט יעד מוכר בשרת למשל <span class="en">443</span>. ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!
             </p>
           </div>
         </div>
@@ -905,7 +920,7 @@ footer {
           <div class="section-box">
             <h4>⚡ אופן פעולה - אמינות מעל הכל!</h4>
             <p>
-              <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קבצים, מיילים).
+              <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קקבצים, מיילים).
             </p>
           </div>
 
@@ -954,10 +969,10 @@ footer {
           <div class="section-box" style="border-color: var(--green);">
             <h4 style="color: var(--green);">🛠️ תכונות מפתח של <span class="en">UDP</span></h4>
             <div class="spec-grid">
-              <div class="spec-card"><span>Header קל משקל</span><b>8 <span class="en">Bytes</span> בלבד לעומת 20 ב-<span class="en">TCP</span></b></div>
+              <div class="spec-card"><span><span class="en">Header</span> קל משקל</span><b><span class="en">8 Bytes</span> בלבד לעומת <span class="en">20</span> ב-<span class="en">TCP</span></b></div>
               <div class="spec-card"><span>אפס השהיה <span class="en">Latency</span></span><b>אין לחיצת יד בתחילה</b></div>
               <div class="spec-card"><span>ללא <span class="en">Re-transmission</span></span><b>חבילה שנפלה - הלכה לבלי שוב</b></div>
-              <div class="spec-card"><span>שימושים נפוצים</span><b><span class="en">VoIP, Video Streaming, Gaming, DNS</span></b></div>
+              <div class="spec-card"><span>שימושים נפוצים</span><b><span class="en">VoIP, Streaming, Gaming, DNS</span></b></div>
             </div>
           </div>
 
@@ -980,100 +995,100 @@ footer {
       <!-- שאלה 1 -->
       <div class="quiz-q">
         <p>1. מהי יחידת המידע <span class="en">PDU</span> של פרוטוקול <span class="en">TCP</span> בשכבה 4?</p>
-        <label class="quiz-opt"><input type="radio" name="q1" value="a"> Packet - חבילה</label>
-        <label class="quiz-opt"><input type="radio" name="q1" value="b"> Segment - מקטע</label>
-        <label class="quiz-opt"><input type="radio" name="q1" value="c"> Frame - מסגרת</label>
-        <label class="quiz-opt"><input type="radio" name="q1" value="d"> Datagram - דאטאגרם</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="a"> <span class="en">Packet</span> - חבילה</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="b"> <span class="en">Segment</span> - מקטע</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="c"> <span class="en">Frame</span> - מסגרת</label>
+        <label class="quiz-opt"><input type="radio" name="q1" value="d"> <span class="en">Datagram</span> - דאטאגרם</label>
         <div id="q1-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 2 -->
       <div class="quiz-q">
         <p>2. באיזה פורט משתמש פרוטוקול <span class="en">HTTP</span> לגלישה לא מאובטחת?</p>
-        <label class="quiz-opt"><input type="radio" name="q2" value="a"> Port 443</label>
-        <label class="quiz-opt"><input type="radio" name="q2" value="b"> Port 53</label>
-        <label class="quiz-opt"><input type="radio" name="q2" value="c"> Port 80</label>
-        <label class="quiz-opt"><input type="radio" name="q2" value="d"> Port 21</label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="a"> <span class="en">Port 443</span></label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="b"> <span class="en">Port 53</span></label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="c"> <span class="en">Port 80</span></label>
+        <label class="quiz-opt"><input type="radio" name="q2" value="d"> <span class="en">Port 21</span></label>
         <div id="q2-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 3 -->
       <div class="quiz-q">
         <p>3. איזה פרוטוקול מתאים יותר למשחק מחשב מרובה משתתפים בזמן אמת <span class="en">FPS/Gaming</span>?</p>
-        <label class="quiz-opt"><input type="radio" name="q3" value="a"> UDP - בגלל המהירות והיעדר ההשהיה</label>
-        <label class="quiz-opt"><input type="radio" name="q3" value="b"> TCP - בגלל שהוא מבטיח שכל ירייה תגיע בוודאות</label>
-        <label class="quiz-opt"><input type="radio" name="q3" value="c"> IP - בגלל שהוא עובד בשכבה 3</label>
-        <label class="quiz-opt"><input type="radio" name="q3" value="d"> HTTP - בגלל העברת הנתונים הנוחה</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="a"> <span class="en">UDP</span> - בגלל המהירות והיעדר ההשהיה</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="b"> <span class="en">TCP</span> - בגלל שהוא מבטיח שכל ירייה תגיע בוודאות</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="c"> <span class="en">IP</span> - בגלל שהוא עובד בשכבה 3</label>
+        <label class="quiz-opt"><input type="radio" name="q3" value="d"> <span class="en">HTTP</span> - בגלל העברת הנתונים הנוחה</label>
         <div id="q3-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 4 -->
       <div class="quiz-q">
         <p>4. מה מכילה הגדרת סוקט <span class="en">Socket</span> ברשת?</p>
-        <label class="quiz-opt"><input type="radio" name="q4" value="a"> כתובת MAC בלבד</label>
-        <label class="quiz-opt"><input type="radio" name="q4" value="b"> כתובת IP בלבד</label>
-        <label class="quiz-opt"><input type="radio" name="q4" value="c"> שילוב של כתובת IP ומספר Port</label>
-        <label class="quiz-opt"><input type="radio" name="q4" value="d"> שילוב של כתובת MAC וכתובת IP</label>
+        <label class="quiz-opt"><input type="radio" name="q4" value="a"> כתובת <span class="en">MAC</span> בלבד</label>
+        <label class="quiz-opt"><input type="radio" name="q4" value="b"> כתובת <span class="en">IP</span> בלבד</label>
+        <label class="quiz-opt"><input type="radio" name="q4" value="c"> שילוב של כתובת <span class="en">IP</span> ומספר <span class="en">Port</span></label>
+        <label class="quiz-opt"><input type="radio" name="q4" value="d"> שילוב של כתובת <span class="en">MAC</span> וכתובת <span class="en">IP</span></label>
         <div id="q4-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 5 -->
       <div class="quiz-q">
-        <p>5. מהו הסדר הנכון של מנגנון לחיצת היד המשולשת <span class="en">3-Way Handshake</span> ב-TCP?</p>
-        <label class="quiz-opt"><input type="radio" name="q5" value="a"> ACK &rarr; SYN &rarr; SYN-ACK</label>
-        <label class="quiz-opt"><input type="radio" name="q5" value="b"> SYN &rarr; ACK &rarr; SYN-ACK</label>
-        <label class="quiz-opt"><input type="radio" name="q5" value="c"> SYN &rarr; SYN-ACK &rarr; ACK</label>
-        <label class="quiz-opt"><input type="radio" name="q5" value="d"> FIN &rarr; ACK &rarr; FIN-ACK</label>
+        <p>5. מהו הסדר הנכון של מנגנון לחיצת היד המשולשת <span class="en">3-Way Handshake</span> ב-<span class="en">TCP</span>?</p>
+        <label class="quiz-opt"><input type="radio" name="q5" value="a"> <span class="en">ACK &rarr; SYN &rarr; SYN-ACK</span></label>
+        <label class="quiz-opt"><input type="radio" name="q5" value="b"> <span class="en">SYN &rarr; ACK &rarr; SYN-ACK</span></label>
+        <label class="quiz-opt"><input type="radio" name="q5" value="c"> <span class="en">SYN &rarr; SYN-ACK &rarr; ACK</span></label>
+        <label class="quiz-opt"><input type="radio" name="q5" value="d"> <span class="en">FIN &rarr; ACK &rarr; FIN-ACK</span></label>
         <div id="q5-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 6 -->
       <div class="quiz-q">
         <p>6. מהו טווח הפורטים השמורים מראש <span class="en">Well-Known Ports</span>?</p>
-        <label class="quiz-opt"><input type="radio" name="q6" value="a"> 0 – 1023</label>
-        <label class="quiz-opt"><input type="radio" name="q6" value="b"> 1024 – 49151</label>
-        <label class="quiz-opt"><input type="radio" name="q6" value="c"> 49152 – 65535</label>
-        <label class="quiz-opt"><input type="radio" name="q6" value="d"> 1 – 255</label>
+        <label class="quiz-opt"><input type="radio" name="q6" value="a"> <span class="en">0 – 1023</span></label>
+        <label class="quiz-opt"><input type="radio" name="q6" value="b"> <span class="en">1024 – 49151</span></label>
+        <label class="quiz-opt"><input type="radio" name="q6" value="c"> <span class="en">49152 – 65535</span></label>
+        <label class="quiz-opt"><input type="radio" name="q6" value="d"> <span class="en">1 – 255</span></label>
         <div id="q6-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 7 -->
       <div class="quiz-q">
         <p>7. איזה גודל הדר <span class="en">Header</span> קטן וחסכוני יותר?</p>
-        <label class="quiz-opt"><input type="radio" name="q7" value="a"> TCP - בגודל 20 בייטים</label>
-        <label class="quiz-opt"><input type="radio" name="q7" value="b"> UDP - בגודל 8 בייטים בלבד</label>
+        <label class="quiz-opt"><input type="radio" name="q7" value="a"> <span class="en">TCP</span> - בגודל <span class="en">20 Bytes</span></label>
+        <label class="quiz-opt"><input type="radio" name="q7" value="b"> <span class="en">UDP</span> - בגודל <span class="en">8 Bytes</span> בלבד</label>
         <label class="quiz-opt"><input type="radio" name="q7" value="c"> לשניהם אותו גודל בדיוק</label>
-        <label class="quiz-opt"><input type="radio" name="q7" value="d"> IP Header - בגודל 64 בייטים</label>
+        <label class="quiz-opt"><input type="radio" name="q7" value="d"> <span class="en">IP Header</span> - בגודל <span class="en">64 Bytes</span></label>
         <div id="q7-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 8 -->
       <div class="quiz-q">
-        <p>8. מה קורה במידה וחבילת UDP נעלמת בדרך ליעד?</p>
+        <p>8. מה קורה במידה וחבילת <span class="en">UDP</span> נעלמת בדרך ליעד?</p>
         <label class="quiz-opt"><input type="radio" name="q8" value="a"> השרת שולח בקשת שידור חוזר ישירות</label>
-        <label class="quiz-opt"><input type="radio" name="q8" value="b"> UDP מבצע סנכרון מחדש ומאיט את הקצב</label>
-        <label class="quiz-opt"><input type="radio" name="q8" value="c"> החבילה הולכת לאיבוד, UDP אינו משדר אותה מחדש</label>
-        <label class="quiz-opt"><input type="radio" name="q8" value="d"> החבילה מומרת למקטע TCP אוטומטית</label>
+        <label class="quiz-opt"><input type="radio" name="q8" value="b"> <span class="en">UDP</span> מבצע סנכרון מחדש ומאיט את הקצב</label>
+        <label class="quiz-opt"><input type="radio" name="q8" value="c"> החבילה הולכת לאיבוד, <span class="en">UDP</span> אינו משדר אותה מחדש</label>
+        <label class="quiz-opt"><input type="radio" name="q8" value="d"> החבילה מומרת למקטע <span class="en">TCP</span> אוטומטית</label>
         <div id="q8-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 9 -->
       <div class="quiz-q">
-        <p>9. באיזה פורט משתמש שירות <span class="en">DNS</span> לתרגום שמות מתחם לכתובות IP?</p>
-        <label class="quiz-opt"><input type="radio" name="q9" value="a"> Port 22</label>
-        <label class="quiz-opt"><input type="radio" name="q9" value="b"> Port 53</label>
-        <label class="quiz-opt"><input type="radio" name="q9" value="c"> Port 443</label>
-        <label class="quiz-opt"><input type="radio" name="q9" value="d"> Port 67</label>
+        <p>9. באיזה פורט משתמש שירות <span class="en">DNS</span> לתרגום שמות מתחם לכתובות <span class="en">IP</span>?</p>
+        <label class="quiz-opt"><input type="radio" name="q9" value="a"> <span class="en">Port 22</span></label>
+        <label class="quiz-opt"><input type="radio" name="q9" value="b"> <span class="en">Port 53</span></label>
+        <label class="quiz-opt"><input type="radio" name="q9" value="c"> <span class="en">Port 443</span></label>
+        <label class="quiz-opt"><input type="radio" name="q9" value="d"> <span class="en">Port 67</span></label>
         <div id="q9-fb" class="quiz-feedback"></div>
       </div>
 
       <!-- שאלה 10 -->
       <div class="quiz-q">
-        <p>10. מנגנון החלון הנע <span class="en">Sliding Window</span> ב-TCP נועד בעיקר עבור:</p>
+        <p>10. מנגנון החלון הנע <span class="en">Sliding Window</span> ב-<span class="en">TCP</span> נועד בעיקר עבור:</p>
         <label class="quiz-opt"><input type="radio" name="q10" value="a"> הצפנת המידע בתוך המקטעים</label>
         <label class="quiz-opt"><input type="radio" name="q10" value="b"> בקרת עומסים וקצב שליחת הנתונים לפי יכולת המקבל</label>
         <label class="quiz-opt"><input type="radio" name="q10" value="c"> יצירת פורט אקראי חדש לכל הודעה</label>
-        <label class="quiz-opt"><input type="radio" name="q10" value="d"> תרגום כתובות MAC לכתובות IP</label>
+        <label class="quiz-opt"><input type="radio" name="q10" value="d"> תרגום כתובות <span class="en">MAC</span> לכתובות <span class="en">IP</span></label>
         <div id="q10-fb" class="quiz-feedback"></div>
       </div>
 
@@ -1172,7 +1187,7 @@ function expandBot(evt){
 
 function checkQuiz() {
   const answers = {
-    q1: { correct: 'b', text: 'ב-TCP יחידת המידע נקראת Segment מקטע.' },
+    q1: { correct: 'b', text: 'ב-TCP יחידת המידע נקראת Segment (מקטע).' },
     q2: { correct: 'c', text: 'Port 80 מיועד ל-HTTP, בעוד Port 443 מיועד ל-HTTPS.' },
     q3: { correct: 'a', text: 'UDP מספק מהירות שיא ללא השהיות של אישורי קבלה.' },
     q4: { correct: 'c', text: 'Socket מורכב משילוב של כתובת IP ומספר Port.' },
