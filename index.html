@@ -62,6 +62,7 @@ body {
   color: var(--text);
   transition: background-color 0.3s ease, color 0.3s ease;
   padding-bottom: 60px;
+  font-size: 18px;
 }
 
 :focus-visible {
@@ -74,9 +75,13 @@ body {
 .en {
   direction: ltr;
   unicode-bidi: isolate;
-  display: inline-block;
-  padding: 1px 7px;
-  margin: 0 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  padding: 2px 8px;
+  margin: 0 3px;
   background: var(--cyan-soft);
   border: 1px solid var(--panel-border);
   border-radius: 6px;
@@ -85,6 +90,8 @@ body {
   font-weight: 700;
   color: var(--cyan);
   vertical-align: middle;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .mono {
@@ -148,9 +155,9 @@ header::before {
 
 .nav-btn {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  padding: 10px 18px;
+  padding: 12px 20px;
   border-radius: 11px;
   text-decoration: none;
   display: inline-flex;
@@ -183,7 +190,7 @@ header::before {
   justify-content: center;
   gap: 10px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
+  font-size: 14px;
   letter-spacing: 0.4px;
   color: #b45309;
   margin-bottom: 22px;
@@ -216,7 +223,7 @@ header p.subtitle {
   margin: 4px 0 26px;
   color: #c2410c;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .protocol-row {
@@ -229,7 +236,7 @@ header p.subtitle {
 
 .protocol-chip {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   color: #b91c1c;
   background: rgba(255, 255, 255, 0.55);
@@ -272,7 +279,7 @@ header p.subtitle {
 .panel-head h2 {
   color: var(--text);
   font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 800;
   margin: 0;
   display: flex;
@@ -282,13 +289,13 @@ header p.subtitle {
 
 .panel-tag {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11.5px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.6px;
   color: var(--cyan);
   background: var(--cyan-soft);
   border: 1px solid var(--panel-border);
-  padding: 4px 11px;
+  padding: 5px 12px;
   border-radius: 7px;
   white-space: nowrap;
 }
@@ -296,18 +303,18 @@ header p.subtitle {
 /* ============ TABS ============ */
 .tabs-nav {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 25px;
   border-bottom: 2px solid var(--panel-border);
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 
 .tab-btn {
   font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 800;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border: 1px solid var(--panel-border);
   border-radius: 12px;
   background: var(--bg);
@@ -354,8 +361,8 @@ header p.subtitle {
 
 .component-grid {
   display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 25px;
+  grid-template-columns: 340px 1fr;
+  gap: 28px;
 }
 
 .comp-media {
@@ -366,7 +373,7 @@ header p.subtitle {
 
 .comp-img {
   width: 100%;
-  height: 220px;
+  height: 230px;
   object-fit: cover;
   border-radius: 14px;
   border: 2px solid var(--panel-border);
@@ -377,16 +384,16 @@ header p.subtitle {
   background: var(--bg);
   border: 1px solid var(--panel-border);
   border-radius: 12px;
-  padding: 16px;
+  padding: 18px;
 }
 
 .meta-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
+  padding: 10px 0;
   border-bottom: 1px dashed var(--panel-border);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .meta-item:last-child { border-bottom: none; }
@@ -404,31 +411,32 @@ header p.subtitle {
 .comp-details {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 20px;
 }
 
 .comp-title {
   font-family: 'Rubik', sans-serif;
-  font-size: 26px;
+  font-size: 30px;
   font-weight: 900;
   margin: 0;
   color: var(--text);
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap;
 }
 
 .section-box {
   background: var(--bg);
   border-right: 4px solid var(--cyan);
   border-radius: 8px;
-  padding: 16px;
+  padding: 20px;
 }
 
 .section-box h4 {
-  margin: 0 0 8px 0;
+  margin: 0 0 10px 0;
   font-family: 'Rubik', sans-serif;
-  font-size: 16px;
+  font-size: 20px;
   color: var(--cyan);
   display: flex;
   align-items: center;
@@ -437,7 +445,7 @@ header p.subtitle {
 
 .section-box p {
   margin: 0;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.8;
   font-weight: 600;
   color: var(--text);
@@ -445,34 +453,124 @@ header p.subtitle {
 
 .spec-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
 }
 
 .spec-card {
   background: var(--card);
   border: 1px solid var(--panel-border);
   border-radius: 10px;
-  padding: 12px;
+  padding: 14px;
 }
 
 .spec-card span {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   color: var(--text-muted);
   margin-bottom: 6px;
 }
 
 .spec-card b {
-  font-size: 13.5px;
+  font-size: 16px;
   font-weight: 800;
   color: var(--text);
 }
 
-/* ============ מבדק ורפלקציה ============ */
+/* ============ מבדק, חלונית מורה ורפלקציה ============ */
+.teacher-access-card {
+  background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(14, 116, 144, 0.1));
+  border: 2px dashed var(--violet);
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.teacher-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.teacher-icon {
+  font-size: 28px;
+  background: var(--violet-soft);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid var(--violet);
+}
+
+.teacher-title {
+  font-family: 'Rubik', sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--violet);
+  margin: 0;
+}
+
+.teacher-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 2px 0 0;
+}
+
+.teacher-btn {
+  background: var(--violet);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.teacher-btn:hover {
+  background: #5b21b6;
+  transform: translateY(-2px);
+}
+
+.answers-box {
+  display: none;
+  background: var(--green-soft);
+  border: 2px solid var(--green);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+
+.answers-box h4 {
+  margin: 0 0 12px;
+  color: var(--green);
+  font-size: 20px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.answers-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  font-size: 16px;
+  font-weight: 700;
+}
+
 .quiz-q {
-  margin-bottom: 20px;
-  padding: 16px;
+  margin-bottom: 22px;
+  padding: 20px;
   background: var(--bg);
   border-radius: 12px;
   border: 1px solid var(--panel-border);
@@ -480,26 +578,28 @@ header p.subtitle {
 
 .quiz-q p {
   font-weight: 800;
+  font-size: 19px;
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .quiz-opt {
   display: block;
-  margin: 8px 0;
+  margin: 10px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14.5px;
+  font-size: 17px;
 }
 
 .quiz-opt input {
-  margin-left: 8px;
+  margin-left: 10px;
+  transform: scale(1.2);
 }
 
 .quiz-feedback {
-  margin-top: 8px;
+  margin-top: 10px;
   font-weight: 800;
-  font-size: 13.5px;
+  font-size: 16px;
   display: none;
 }
 
@@ -510,24 +610,24 @@ header p.subtitle {
   display: none;
   background: var(--cyan-soft);
   border: 2px solid var(--cyan);
-  padding: 18px;
+  padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
 }
 
 .reflection-textarea {
   width: 100%;
-  min-height: 100px;
+  min-height: 120px;
   border-radius: 10px;
   border: 1px solid var(--panel-border);
   background: var(--bg);
   color: var(--text);
-  padding: 12px;
+  padding: 14px;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 17px;
   resize: vertical;
 }
 
@@ -560,7 +660,7 @@ header p.subtitle {
     position: fixed;
     bottom: 13px;
     left: 13px;
-    width: 178px;
+    width: 190px;
     max-width: calc(100vw - 26px);
     background: var(--card);
     color: var(--text);
@@ -654,12 +754,12 @@ header p.subtitle {
     margin: 0 0 6px 0;
     font-weight: 800;
     text-align: center;
-    font-size: 9px;
+    font-size: 10px;
 }
 
 .bot-body .lead {
     font-weight: 600;
-    font-size: 8px;
+    font-size: 9px;
     text-align: center;
     color: var(--text-muted);
     margin: 0 0 7px;
@@ -675,7 +775,7 @@ header p.subtitle {
 
 .bot-chip {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 6.5px;
+    font-size: 7px;
     font-weight: 600;
     color: var(--text-muted);
     background: var(--bg);
@@ -695,7 +795,7 @@ header p.subtitle {
     text-decoration: none;
     border-radius: 6px;
     font-weight: 800;
-    font-size: 8.5px;
+    font-size: 9.5px;
     font-family: 'JetBrains Mono', monospace;
     transition: transform 0.2s ease, opacity 0.2s ease;
     direction: ltr;
@@ -713,7 +813,7 @@ footer {
   color: var(--text-muted);
   font-weight: 700;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 12.5px;
+  font-size: 14px;
   text-align: center;
   padding: 26px;
   margin-top: 50px;
@@ -745,7 +845,7 @@ footer {
   .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
   .panel { padding: 18px 12px; }
   .hero-image img { width: 100px; height: 100px; }
-  .tab-btn { width: 100%; justify-content: center; }
+  .tab-btn { width: 100%; justify-content: center; font-size: 16px; }
   .bot-avatar { width: 68px; height: 68px; }
   .bot-widget:not(.collapsed) {
     width: calc(100vw - 44px);
@@ -781,11 +881,11 @@ footer {
       </div>
       
       <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 8px;">
-        <span style="background: rgba(185, 28, 28, 0.1); color: #b91c1c; font-size: 12px; font-weight: 700; padding: 3px 10px; border-radius: 20px;">🔥 שיעור מטורלל: שכבה 4 - שכבת התעבורה</span>
-        <h1 style="font-size: 22px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הדאטה מגיע בדיוק לאפליקציה הנכונה?</h1>
+        <span style="background: rgba(185, 28, 28, 0.1); color: #b91c1c; font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 20px;">🔥 שיעור מטורלל: שכבה 4 - שכבת התעבורה</span>
+        <h1 style="font-size: 24px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הדאטה מגיע בדיוק לאפליקציה הנכונה?</h1>
       </div>
 
-      <p class="subtitle" style="font-size: 14px; margin: 4px 0 16px;">
+      <p class="subtitle" style="font-size: 16px; margin: 4px 0 16px;">
         מסע עומק בטאבים: מקטעים <span class="en">Segments</span>, דאטאגרמות <span class="en">Datagrams</span>, פורטים והקרב הענקים בין <span class="en">TCP</span> ל-<span class="en">UDP</span>!
       </p>
       <div class="protocol-row">
@@ -812,8 +912,8 @@ footer {
     <div class="tabs-nav">
       <button class="tab-btn active" onclick="openTab(event, 'intro')">📦 תפקיד השכבה וחלוקה</button>
       <button class="tab-btn" onclick="openTab(event, 'ports')">🚪 פורטים ושקעים <span class="en">Sockets</span></button>
-      <button class="tab-btn" onclick="openTab(event, 'tcp')">🤝 פרוטוקול <span class="en">TCP</span> <span class="en">Segment</span></button>
-      <button class="tab-btn" onclick="openTab(event, 'udp')">⚡ פרוטוקול <span class="en">UDP</span> <span class="en">Datagram</span></button>
+      <button class="tab-btn" onclick="openTab(event, 'tcp')">🤝 פרוטוקול <span class="en">TCP Segment</span></button>
+      <button class="tab-btn" onclick="openTab(event, 'udp')">⚡ פרוטוקול <span class="en">UDP Datagram</span></button>
       <button class="tab-btn" onclick="openTab(event, 'quiz')">📝 מבדק ידע אינטראקטיבי</button>
       <button class="tab-btn" onclick="openTab(event, 'reflection')">🧠 רפלקציה אישית</button>
     </div>
@@ -826,8 +926,8 @@ footer {
           <div class="meta-box">
             <div class="meta-item"><span class="meta-label">שכבת <span class="en">OSI</span>:</span><span class="meta-val">Layer 4 - Transport</span></div>
             <div class="meta-item"><span class="meta-label">יחידות <span class="en">PDU</span>:</span><span class="meta-val">Segment / Datagram</span></div>
-            <div class="meta-item"><span class="meta-label">מזהה מרכזי:</span><span class="meta-val">Port Numbers</span></div>
-            <div class="meta-item"><span class="meta-label">יעד תקשורת:</span><span class="meta-val">Process-to-Process</span></div>
+            <div class="meta-item"><span class="meta-label">מזהה מרכזי:</span><span class="meta-val"><span class="en">Port Numbers</span></span></div>
+            <div class="meta-item"><span class="meta-label">יעד תקשורת:</span><span class="meta-val"><span class="en">Process-to-Process</span></span></div>
           </div>
         </div>
         <div class="comp-details">
@@ -845,13 +945,13 @@ footer {
             <div class="spec-grid">
               <div class="spec-card"><span><span class="en">Segmentation</span></span><b>פירוק מידע גדול לחלקים קטנים</b></div>
               <div class="spec-card"><span><span class="en">Multiplexing</span></span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
-              <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים <span class="en">Source & Destination</span></b></div>
+              <div class="spec-card"><span>מזהה יישום</span><b>מספרי פורטים <span class="en">Source & Destination Ports</span></b></div>
               <div class="spec-card"><span>בקרת זרימה ושגיאות</span><b>וידוא שהמידע מגיע בשלם ובסדר הנכון</b></div>
             </div>
           </div>
 
           <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);"> טיפ מטורלל למצטייני הרשתות </h4>
+            <h4 style="color: var(--amber);">🔥 טיפ מטורלל למצטייני הרשתות</h4>
             <p>
               אם לא היינו מחלקים את המידע למקטעים, קובץ אחד של <span class="en">1GB</span> שהייתם מורידים היה חוסם את כל כבל הרשת בבית שלכם, ולא הייתם יכולים לשלוח אפילו הודעת וואטסאפ קטנה במקביל!
             </p>
@@ -866,10 +966,10 @@ footer {
         <div class="comp-media">
           <img class="comp-img" src="https://lh3.googleusercontent.com/d/1dvUIqO1nzIGRB_3s9Tnq890Ue1HO_t9s" alt="פורטים">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">טווח פורטים:</span><span class="meta-val">0 – 65535</span></div>
-            <div class="meta-item"><span class="meta-label"><span class="en">Well-Known</span>:</span><span class="meta-val">0 – 1023</span></div>
-            <div class="meta-item"><span class="meta-label"><span class="en">Registered</span>:</span><span class="meta-val">1024 – 49151</span></div>
-            <div class="meta-item"><span class="meta-label"><span class="en">Dynamic/Private</span>:</span><span class="meta-val">49152 – 65535</span></div>
+            <div class="meta-item"><span class="meta-label">טווח פורטים:</span><span class="meta-val"><span class="en">0 – 65535</span></span></div>
+            <div class="meta-item"><span class="meta-label"><span class="en">Well-Known</span>:</span><span class="meta-val"><span class="en">0 – 1023</span></span></div>
+            <div class="meta-item"><span class="meta-label"><span class="en">Registered</span>:</span><span class="meta-val"><span class="en">1024 – 49151</span></span></div>
+            <div class="meta-item"><span class="meta-label"><span class="en">Dynamic/Private</span>:</span><span class="meta-val"><span class="en">49152 – 65535</span></span></div>
           </div>
         </div>
         <div class="comp-details">
@@ -878,7 +978,7 @@ footer {
           <div class="section-box">
             <h4>⚡ מה זה פורט ומה זה <span class="en">Socket</span>?</h4>
             <p>
-              פורט הוא מספר לוגי בין <span class="en">0</span> ל-<span class="en">65535</span> שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת <span class="en">IP</span> יחד עם מספר פורט למשל: <span class="mono">192.168.1.10:80</span>, מקבלים נקודת קצה יחידה במינה שנקראת <strong><span class="en">Socket</span></strong>!
+              פורט הוא מספר לוגי בין <span class="en">0</span> ל-<span class="en">65535</span> שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת <span class="en">IP</span> יחד עם מספר פורט למשל: <span class="en">192.168.1.10:80</span>, מקבלים נקודת קצה יחידה במינה שנקראת <strong><span class="en">Socket</span></strong>!
             </p>
           </div>
 
@@ -906,12 +1006,12 @@ footer {
     <div id="tcp" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
-          <img class="comp-img" src="https://lh3.googleusercontent.com/d/1dvUIqO1nzIGRB_3s9Tnq890Ue1HO_t9s" alt="פרוטוקול TCP">
+          <img class="comp-img" src="https://lh3.googleusercontent.com/d/1IxNhWSms30zv4h_h0O82rFfWN_brUt7T" alt="פרוטוקול TCP">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connection-Oriented</span></div>
-            <div class="meta-item"><span class="meta-label">יחידת <span class="en">PDU</span>:</span><span class="meta-val">Segment מקטע</span></div>
-            <div class="meta-item"><span class="meta-label">אמינות:</span><span class="meta-val">High - 100% Guaranteed</span></div>
-            <div class="meta-item"><span class="meta-label">מנגנון חיבור:</span><span class="meta-val">3-Way Handshake</span></div>
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val"><span class="en">Connection-Oriented</span></span></div>
+            <div class="meta-item"><span class="meta-label">יחידת <span class="en">PDU</span>:</span><span class="meta-val"><span class="en">Segment</span> מקטע</span></div>
+            <div class="meta-item"><span class="meta-label">אמינות:</span><span class="meta-val"><span class="en">High - 100% Guaranteed</span></span></div>
+            <div class="meta-item"><span class="meta-label">מנגנון חיבור:</span><span class="meta-val"><span class="en">3-Way Handshake</span></span></div>
           </div>
         </div>
         <div class="comp-details">
@@ -920,7 +1020,7 @@ footer {
           <div class="section-box">
             <h4>⚡ אופן פעולה - אמינות מעל הכל!</h4>
             <p>
-              <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קקבצים, מיילים).
+              <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קבצים, מיילים).
             </p>
           </div>
 
@@ -948,12 +1048,12 @@ footer {
     <div id="udp" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
-          <img class="comp-img" src="https://lh3.googleusercontent.com/d/1dvUIqO1nzIGRB_3s9Tnq890Ue1HO_t9s" alt="פרוטוקול UDP">
+          <img class="comp-img" src="https://lh3.googleusercontent.com/d/1IxNhWSms30zv4h_h0O82rFfWN_brUt7T" alt="פרוטוקול UDP">
           <div class="meta-box">
-            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val">Connectionless</span></div>
-            <div class="meta-item"><span class="meta-label">יחידת <span class="en">PDU</span>:</span><span class="meta-val">Datagram דאטאגרם</span></div>
-            <div class="meta-item"><span class="meta-label">מהירות:</span><span class="meta-val">Ultra Fast / Low Overhead</span></div>
-            <div class="meta-item"><span class="meta-label">ערבות להגעה:</span><span class="meta-val">Best-Effort - אין ACK</span></div>
+            <div class="meta-item"><span class="meta-label">סוג פרוטוקול:</span><span class="meta-val"><span class="en">Connectionless</span></span></div>
+            <div class="meta-item"><span class="meta-label">יחידת <span class="en">PDU</span>:</span><span class="meta-val"><span class="en">Datagram</span> דאטאגרם</span></div>
+            <div class="meta-item"><span class="meta-label">מהירות:</span><span class="meta-val"><span class="en">Ultra Fast / Low Overhead</span></span></div>
+            <div class="meta-item"><span class="meta-label">ערבות להגעה:</span><span class="meta-val"><span class="en">Best-Effort</span> - אין <span class="en">ACK</span></span></div>
           </div>
         </div>
         <div class="comp-details">
@@ -988,7 +1088,36 @@ footer {
 
     <!-- TAB 5: מבדק ידע -->
     <div id="quiz" class="tab-content">
-      <h3 class="comp-title" style="margin-bottom: 20px;">📝 מבדק ידע אינטראקטיבי - 10 שאלות שטח</h3>
+      <h3 class="comp-title" style="margin-bottom: 15px;">📝 מבדק ידע אינטראקטיבי - 10 שאלות שטח</h3>
+
+      <!-- חלונית מעוצבת למורה -->
+      <div class="teacher-access-card">
+        <div class="teacher-info">
+          <div class="teacher-icon">👨‍🏫</div>
+          <div>
+            <h4 class="teacher-title">אזור מורה</h4>
+            <p class="teacher-desc">לחיצה כאן וכניסה עם סיסמת מורה תחשוף את תשובות המבדק.</p>
+          </div>
+        </div>
+        <button class="teacher-btn" onclick="revealTeacherAnswers()">🔑 כניסת מורה</button>
+      </div>
+
+      <!-- חלונית תשובות שחשופה למורה בלבד -->
+      <div id="teacher-answers-box" class="answers-box">
+        <h4>🔓 תשובות נכונות למורה:</h4>
+        <ul class="answers-list">
+          <li>1. <span class="en">b - Segment</span></li>
+          <li>2. <span class="en">c - Port 80</span></li>
+          <li>3. <span class="en">a - UDP</span></li>
+          <li>4. <span class="en">c - IP + Port</span></li>
+          <li>5. <span class="en">c - SYN &rarr; SYN-ACK &rarr; ACK</span></li>
+          <li>6. <span class="en">a - 0 – 1023</span></li>
+          <li>7. <span class="en">b - UDP (8 Bytes)</span></li>
+          <li>8. <span class="en">c - החבילה הולכת לאיבוד</span></li>
+          <li>9. <span class="en">b - Port 53</span></li>
+          <li>10. <span class="en">b - בקרת עומסים</span></li>
+        </ul>
+      </div>
       
       <div id="quiz-score-box"></div>
 
@@ -1185,20 +1314,20 @@ function expandBot(evt){
   }
 }
 
-function checkQuiz() {
-  const answers = {
-    q1: { correct: 'b', text: 'ב-TCP יחידת המידע נקראת Segment (מקטע).' },
-    q2: { correct: 'c', text: 'Port 80 מיועד ל-HTTP, בעוד Port 443 מיועד ל-HTTPS.' },
-    q3: { correct: 'a', text: 'UDP מספק מהירות שיא ללא השהיות של אישורי קבלה.' },
-    q4: { correct: 'c', text: 'Socket מורכב משילוב של כתובת IP ומספר Port.' },
-    q5: { correct: 'c', text: 'הסדר הוא: SYN -> SYN-ACK -> ACK.' },
-    q6: { correct: 'a', text: 'הטווח 0–1023 מיועד ל-Well-Known Ports.' },
-    q7: { correct: 'b', text: 'UDP Header קל מאוד ומכיל 8 בייטים בלבד.' },
-    q8: { correct: 'c', text: 'UDP אינו מבצע שידור חוזר (Best-Effort).' },
-    q9: { correct: 'b', text: 'DNS עובד בפורט 53.' },
-    q10: { correct: 'b', text: 'Sliding Window מנהל את קצב הזרימה ובקרת העומסים.' }
-  };
+const quizAnswers = {
+  q1: { correct: 'b', text: 'ב-TCP יחידת המידע נקראת Segment (מקטע).' },
+  q2: { correct: 'c', text: 'Port 80 מיועד ל-HTTP, בעוד Port 443 מיועד ל-HTTPS.' },
+  q3: { correct: 'a', text: 'UDP מספק מהירות שיא ללא השהיות של אישורי קבלה.' },
+  q4: { correct: 'c', text: 'Socket מורכב משילוב של כתובת IP ומספר Port.' },
+  q5: { correct: 'c', text: 'הסדר הוא: SYN -> SYN-ACK -> ACK.' },
+  q6: { correct: 'a', text: 'הטווח 0–1023 מיועד ל-Well-Known Ports.' },
+  q7: { correct: 'b', text: 'UDP Header קל מאוד ומכיל 8 בייטים בלבד.' },
+  q8: { correct: 'c', text: 'UDP אינו מבצע שידור חוזר (Best-Effort).' },
+  q9: { correct: 'b', text: 'DNS עובד בפורט 53.' },
+  q10: { correct: 'b', text: 'Sliding Window מנהל את קצב הזרימה ובקרת העומסים.' }
+};
 
+function checkQuiz() {
   let score = 0;
   const totalQuestions = 10;
 
@@ -1207,12 +1336,12 @@ function checkQuiz() {
     const selected = document.querySelector(`input[name="${qKey}"]:checked`);
     const fb = document.getElementById(`${qKey}-fb`);
 
-    if (selected && selected.value === answers[qKey].correct) {
+    if (selected && selected.value === quizAnswers[qKey].correct) {
       score++;
-      fb.innerHTML = `נכון מאוד! ✅ ${answers[qKey].text}`;
+      fb.innerHTML = `נכון מאוד! ✅ ${quizAnswers[qKey].text}`;
       fb.className = 'quiz-feedback correct';
     } else {
-      fb.innerHTML = `לא מדויק ❌ תשובה נכונה: ${answers[qKey].text}`;
+      fb.innerHTML = `לא מדויק ❌ תשובה נכונה: ${quizAnswers[qKey].text}`;
       fb.className = 'quiz-feedback incorrect';
     }
   }
@@ -1232,6 +1361,29 @@ function checkQuiz() {
   scoreBox.innerHTML = `הציון שלך: <strong>${finalGrade} / 100</strong> (${score} מתוך ${totalQuestions} תשובות נכונות)<br>${gradeMessage}`;
   scoreBox.style.display = 'block';
   scoreBox.scrollIntoView({ behavior: 'smooth' });
+}
+
+function revealTeacherAnswers() {
+  const password = prompt("אנא הכנס סיסמת מורה:");
+  if (password === "sahar") {
+    alert("סיסמא אושרה! התשובות הנכונות מוצגות כעת.");
+    
+    // הצגת תיבת התשובות
+    const answersBox = document.getElementById('teacher-answers-box');
+    answersBox.style.display = 'block';
+
+    // סימון התשובות הנכונות במבדק
+    for (let i = 1; i <= 10; i++) {
+      const qKey = 'q' + i;
+      const correctVal = quizAnswers[qKey].correct;
+      const targetInput = document.querySelector(`input[name="${qKey}"][value="${correctVal}"]`);
+      if (targetInput) {
+        targetInput.checked = true;
+      }
+    }
+  } else if (password !== null) {
+    alert("סיסמא שגויה! הגישה נדחתה.");
+  }
 }
 </script>
 
