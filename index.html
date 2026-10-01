@@ -101,18 +101,15 @@ body {
   display: inline-block;
 }
 
-/* ============ HEADER ============ */
-header {
+/* ============ HEADER (קומפקטי, רציף ומסודר בלי רווחים מיותרים) ============ */
+header.hero{
+  padding: 10px 0 12px;
+  border-bottom: 1px solid rgba(185, 28, 28, 0.22);
   position: relative;
   background: linear-gradient(160deg, #fbf3e2 0%, #f7ecd6 55%, #f9efdb 100%);
-  color: #b91c1c;
-  padding: 34px 20px 46px;
-  text-align: center;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(185, 28, 28, 0.22);
 }
 
-header::before {
+header.hero::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -122,54 +119,138 @@ header::before {
   pointer-events: none;
 }
 
-.hero-row {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 34px;
-  max-width: 1300px;
-  margin: 0 auto;
-  flex-wrap: wrap-reverse;
-}
-
-.hero-image img {
-  animation: spin 12s linear infinite;
-}
-
-.hero-text {
-  flex: 1;
-  min-width: 280px;
-}
-
-.navbar {
+.header-inner {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 14px;
+  gap: 20px;
   max-width: 1300px;
-  margin: 0 auto 30px;
+  margin: 0 auto;
   flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+.header-main-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero-avatar-spin{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #b91c1c;
+  box-shadow: 0 0 12px rgba(185, 28, 28, 0.4), 0 0 0 3px #FFFFFF;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #ffffff;
+  animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.header-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.eyebrow{
+  display:inline-block;
+  font-family:'JetBrains Mono',monospace;
+  font-size:10.5px;
+  font-weight: 700;
+  letter-spacing:1px;
+  color:#b91c1c;
+  background:rgba(185, 28, 28, 0.1);
+  border:1px solid rgba(185, 28, 28, 0.3);
+  padding:2px 8px;
+  border-radius:12px;
+  direction: ltr;
+  width: fit-content;
+  unicode-bidi: isolate;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+h1.title{
+  font-size: 20px;
+  margin: 0;
+  color: #b91c1c;
+  line-height: 1.1;
+  font-family: 'Rubik', 'Assistant', sans-serif;
+  font-weight: 900;
+}
+
+.subtitle{
+  font-size: 12px;
+  max-width: 750px;
+  margin: 0;
+  color: #c2410c;
+  font-weight: 700;
+}
+
+.header-actions-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.protocol-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.protocol-chip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #b91c1c;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(185, 28, 28, 0.3);
+  padding: 2px 6px;
+  border-radius: 5px;
+  letter-spacing: 0.3px;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .nav-btn {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 15px;
+  font-size: 10.5px;
   font-weight: 700;
-  padding: 12px 20px;
-  border-radius: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
   cursor: pointer;
   border: none;
   transition: transform 0.18s ease, opacity 0.18s ease;
   letter-spacing: 0.2px;
 }
 
-.nav-btn:hover { transform: translateY(-2px); }
+.nav-btn:hover { transform: translateY(-1px); }
 
 .nav-btn.outline {
   background: rgba(255, 255, 255, 0.55);
@@ -180,72 +261,7 @@ header::before {
 .nav-btn.solid {
   background: linear-gradient(120deg, #dc2626, #b91c1c);
   color: #fff5f0;
-  box-shadow: 0 8px 22px -6px rgba(185, 28, 28, 0.5);
-}
-
-.statusbar {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  letter-spacing: 0.4px;
-  color: #b45309;
-  margin-bottom: 22px;
-  flex-wrap: wrap;
-}
-
-.statusbar .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #b91c1c;
-  box-shadow: 0 0 0 4px rgba(185, 28, 28, 0.2);
-  animation: pulse 1.8s ease-in-out infinite;
-}
-
-.statusbar .sep { opacity: 0.4; }
-
-h1 {
-  position: relative;
-  margin: 8px 0 6px;
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 42px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  color: #b91c1c;
-}
-
-header p.subtitle {
-  position: relative;
-  margin: 4px 0 26px;
-  color: #c2410c;
-  font-weight: 700;
-  font-size: 19px;
-}
-
-.protocol-row {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.protocol-chip {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 600;
-  color: #b91c1c;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(185, 28, 28, 0.3);
-  padding: 6px 13px;
-  border-radius: 8px;
-  letter-spacing: 0.5px;
-  direction: ltr;
-  unicode-bidi: isolate;
+  box-shadow: 0 4px 12px -3px rgba(185, 28, 28, 0.5);
 }
 
 /* ============ מבנה כללי ============ */
@@ -820,11 +836,6 @@ footer {
   letter-spacing: 0.3px;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
 @keyframes floatBot {
   0% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
@@ -841,10 +852,8 @@ footer {
 }
 
 @media (max-width: 640px) {
-  h1 { font-size: 26px; }
   .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
   .panel { padding: 18px 12px; }
-  .hero-image img { width: 100px; height: 100px; }
   .tab-btn { width: 100%; justify-content: center; font-size: 16px; }
   .bot-avatar { width: 68px; height: 68px; }
   .bot-widget:not(.collapsed) {
@@ -860,42 +869,32 @@ footer {
 
 <button class="darkBtn" onclick="toggleDark()" title="החלף מצב תצוגה" id="darkToggleBtn">🌙</button>
 
-<header>
-  <nav class="navbar">
-    <a class="nav-btn outline" href="#tabs-section">⚡ עברו ישר למעבדת השכבה</a>
-    <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">🖥️ אקדמיית השותפים</a>
-  </nav>
-
-  <div class="hero-row">
-    <div class="hero-image">
-      <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid #b91c1c; box-shadow: 0 4px 12px rgba(185, 28, 28, 0.2); background: #fff;">
+<header class="hero">
+  <div class="header-inner">
+    <!-- קבוצה ימנית: אוואטר, תג, כותרת וסאבטייטל -->
+    <div class="header-main-group">
+      <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" class="hero-avatar-spin">
+      <div class="header-text-content">
+        <div class="eyebrow" dir="ltr">session: transport_layer_mastery // layer4.osi.local</div>
+        <div class="title-row">
+          <h1 class="title">שיעור מטורלל: שכבה 4 - שכבת התעבורה</h1>
+        </div>
+        <p class="subtitle">איך הדאטה מגיע בדיוק לאפליקציה הנכונה? מסע עומק בטאבים: מקטעים, דאטאגרמות, פורטים ו-TCP מול UDP!</p>
+      </div>
     </div>
-    <div class="hero-text">
-      <div class="statusbar">
-        <span class="dot"></span>
-        <span class="mono">session: transport_layer_mastery</span>
-        <span class="sep">//</span>
-        <span class="mono">layer4.osi.local</span>
-        <span class="sep">//</span>
-        <span class="mono">TCP/UDP PORT LAB</span>
-      </div>
-      
-      <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-bottom: 8px;">
-        <span style="background: rgba(185, 28, 28, 0.1); color: #b91c1c; font-size: 13px; font-weight: 700; padding: 3px 10px; border-radius: 20px;">🔥 שיעור מטורלל: שכבה 4 - שכבת התעבורה</span>
-        <h1 style="font-size: 24px; font-weight: 800; color: #b91c1c; margin: 0; letter-spacing: -0.3px;">איך הדאטה מגיע בדיוק לאפליקציה הנכונה?</h1>
-      </div>
 
-      <p class="subtitle" style="font-size: 16px; margin: 4px 0 16px;">
-        מסע עומק בטאבים: מקטעים <span class="en">Segments</span>, דאטאגרמות <span class="en">Datagrams</span>, פורטים והקרב הענקים בין <span class="en">TCP</span> ל-<span class="en">UDP</span>!
-      </p>
+    <!-- קבוצה שמאלית: פרוטוקולים וכפתורי ניווט בשורה אחת צפופה -->
+    <div class="header-actions-group">
       <div class="protocol-row">
-        <span class="protocol-chip">LAYER 4</span>
         <span class="protocol-chip">TCP</span>
         <span class="protocol-chip">UDP</span>
-        <span class="protocol-chip">PORTS 0-65535</span>
-        <span class="protocol-chip">SEGMENTATION</span>
-        <span class="protocol-chip">DATAGRAM</span>
+        <span class="protocol-chip">PORTS</span>
+        <span class="protocol-chip">SEGMENT</span>
       </div>
+      <nav class="navbar" style="margin: 0;">
+        <a class="nav-btn outline" href="#tabs-section">⚡ למעבדה</a>
+        <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">אקדמיית השותפים</a>
+      </nav>
     </div>
   </div>
 </header>
