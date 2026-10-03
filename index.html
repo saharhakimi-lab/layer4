@@ -101,7 +101,7 @@ body {
   display: inline-block;
 }
 
-/* ============ HEADER (קומפקטי, רציף ומסודר בלי רווחים מיותרים) ============ */
+/* ============ HEADER ============ */
 header.hero{
   padding: 10px 0 12px;
   border-bottom: 1px solid rgba(185, 28, 28, 0.22);
@@ -281,65 +281,34 @@ h1.title{
   box-shadow: var(--shadow);
 }
 
-.panel-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 14px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  padding-bottom: 14px;
-  border-bottom: 1px dashed var(--panel-border);
-}
-
-.panel-head h2 {
-  color: var(--text);
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.panel-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
-  color: var(--cyan);
-  background: var(--cyan-soft);
-  border: 1px solid var(--panel-border);
-  padding: 5px 12px;
-  border-radius: 7px;
-  white-space: nowrap;
-}
-
-/* ============ TABS ============ */
+/* ============ TABS (מותאם לשורה אחת) ============ */
 .tabs-nav {
   display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+  gap: 8px;
+  flex-wrap: nowrap;
   margin-bottom: 25px;
   border-bottom: 2px solid var(--panel-border);
   padding-bottom: 14px;
+  overflow-x: auto;
 }
 
 .tab-btn {
   font-family: 'Rubik', sans-serif;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 800;
-  padding: 14px 24px;
+  padding: 10px 14px;
   border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--text-muted);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  white-space: nowrap;
+  flex: 1 1 auto;
+  justify-content: center;
 }
 
 .tab-btn:hover {
@@ -849,6 +818,7 @@ footer {
 
 @media (max-width: 900px) {
   .component-grid { grid-template-columns: 1fr; }
+  .tabs-nav { flex-wrap: wrap; }
 }
 
 @media (max-width: 640px) {
@@ -892,7 +862,7 @@ footer {
         <span class="protocol-chip">SEGMENT</span>
       </div>
       <nav class="navbar" style="margin: 0;">
-        <a class="nav-btn outline" href="#tabs-section">⚡ למעבדה</a>
+        <a class="nav-btn outline" href="#tabs-section"> למעבדה</a>
         <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">אקדמיית השותפים</a>
       </nav>
     </div>
@@ -902,18 +872,14 @@ footer {
 <div class="container" id="tabs-section">
 
   <div class="panel">
-    <div class="panel-head">
-      <h2> מעבדת שכבת התעבורה <span class="en">Layer 4</span> - בחרו טאב ללמידה</h2>
-      <span class="panel-tag mono">TRANSPORT_MODULE_V4.0</span>
-    </div>
 
-    <!-- סרגל הטאבים (ללא אייקונים) -->
+    <!-- סרגל הטאבים (בשורה אחת) -->
     <div class="tabs-nav">
-      <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד השכבה וחלוקה</button>
+      <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד שכבה 4</button>
       <button class="tab-btn" onclick="openTab(event, 'ports')">פורטים ושקעים <span class="en">Sockets</span></button>
       <button class="tab-btn" onclick="openTab(event, 'tcp')">פרוטוקול <span class="en">TCP Segment</span></button>
       <button class="tab-btn" onclick="openTab(event, 'udp')">פרוטוקול <span class="en">UDP Datagram</span></button>
-      <button class="tab-btn" onclick="openTab(event, 'quiz')">מבדק ידע אינטראקטיבי</button>
+      <button class="tab-btn" onclick="openTab(event, 'quiz')">מבדק</button>
       <button class="tab-btn" onclick="openTab(event, 'reflection')">רפלקציה אישית</button>
     </div>
 
@@ -933,7 +899,6 @@ footer {
           <h3 class="comp-title">  שכבת התעבורה <span class="en">Transport Layer</span> - חלוקה למקטעים</h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה</h4>
             <p>
               שכבה 3 <span class="en">IP</span> דואגת להביא את החבילה מהמחשב שלכם למחשב היעד. אבל איך המחשב היעד יודע איזה אפליקציה צריכה לקבל את המידע? פה נכנסת שכבה 4! היא אחראית על תקשורת מקצה לקצה בין תהליכים <span class="en">Process-to-Process</span>, מקבלת את הקובץ או המידע מהאפליקציה, וחותכת אותו לחתיכות קטנות שנקראות <strong>מקטעים <span class="en">Segments</span></strong> או <strong>דאטאגרמות <span class="en">Datagrams</span></strong>.
             </p>
@@ -975,7 +940,6 @@ footer {
           <h3 class="comp-title">  פורטים <span class="en">Ports</span> וסוקטים <span class="en">Sockets</span></h3>
           
           <div class="section-box">
-            <h4>⚡ מה זה פורט ומה זה <span class="en">Socket</span>?</h4>
             <p>
               פורט הוא מספר לוגי בין <span class="en">0</span> ל-<span class="en">65535</span> שמזהה תוכנה או שירות ספציפי במחשב. כשמשלבים כתובת <span class="en">IP</span> יחד עם מספר פורט למשל: <span class="en">192.168.1.10:80</span>, מקבלים נקודת קצה יחידה במינה שנקראת <strong><span class="en">Socket</span></strong>!
             </p>
@@ -1017,7 +981,6 @@ footer {
           <h3 class="comp-title">🤝 פרוטוקול <span class="en">TCP</span> - <span class="en">Transmission Control Protocol</span></h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה - אמינות מעל הכל!</h4>
             <p>
               <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קבצים, מיילים).
             </p>
@@ -1059,7 +1022,6 @@ footer {
           <h3 class="comp-title"> פרוטוקול <span class="en">UDP</span> - <span class="en">User Datagram Protocol</span></h3>
           
           <div class="section-box">
-            <h4>⚡ אופן פעולה - מהירות שיא, אפס גינונים!</h4>
             <p>
               <span class="en">UDP</span> הוא פרוטוקול ללא חיבור <span class="en">Connectionless</span>. הוא לא מבצע לחיצת יד, לא מבקש אישורי קבלה <span class="en">ACK</span> ולא משדר מחדש חבילות שנפלו. הוא פשוט יורה את ה<strong>דאטאגרמות <span class="en">Datagrams</span></strong> לאוויר בשיא המהירות! מתאים ליישומים בזמן אמת שבהם מהירות חשובה יותר מכל פריים בודד שנשמט (משחקי רשת, שיחות זום/וידאו, שידורי לייב, <span class="en">DNS</span>).
             </p>
@@ -1087,8 +1049,6 @@ footer {
 
     <!-- TAB 5: מבדק ידע -->
     <div id="quiz" class="tab-content">
-      <h3 class="comp-title" style="margin-bottom: 15px;"> מבדק ידע אינטראקטיבי - 10 שאלות שטח</h3>
-
       <!-- חלונית מעוצבת למורה -->
       <div class="teacher-access-card">
         <div class="teacher-info">
@@ -1225,17 +1185,17 @@ footer {
 
     <!-- TAB 6: רפלקציה -->
     <div id="reflection" class="tab-content">
-      <h3 class="comp-title" style="margin-bottom: 20px;">🧠 רפלקציה וסיכום אישי</h3>
+      <h3 class="comp-title" style="margin-bottom: 20px;">רפלקציה וסיכום אישי</h3>
       
       <div class="section-box" style="margin-bottom: 20px;">
-        <h4>💭 שאלת מחשבה לבדק בית:</h4>
+        <h4>שאלת מחשבה לבדק בית:</h4>
         <p>
           חשבו על אפליקציית <span class="en">Zoom</span> או <span class="en">Discord</span>. באיזה חלקים של האפליקציה לדעתכם עדיף להשתמש ב-<span class="en">TCP</span> למשל: העברת קבצים בצ'אט ובאיזה חלקים עדיף להשתמש ב-<span class="en">UDP</span> למשל: הוידאו והסאונד הבלייב? הסבירו מדוע!
         </p>
       </div>
 
       <div class="section-box" style="border-color: var(--violet); background: var(--bg);">
-        <h4 style="color: var(--violet);">✍️ התובנות שלי מהשיעור:</h4>
+        <h4 style="color: var(--violet);">התובנות שלי מהשיעור:</h4>
         <textarea class="reflection-textarea" placeholder="כתבו כאן בקצרה: מה החידוש הכי גדול שלמדתם היום על פורטים, TCP ו-UDP?"></textarea>
       </div>
     </div>
