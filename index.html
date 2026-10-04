@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>אקדמיית השותפים - שיעור מטורלל: שכבה 4 - שכבת התעבורה</title>
+<title>אקדמיית השותפים - שכבה 4 - שכבת התעבורה</title>
 
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,67 +11,60 @@
 
 <style>
 :root {
-  /* Day Ops */
-  --bg: #eef2f7;
-  --grid-line: rgba(15, 23, 42, 0.05);
-  --card: #ffffff;
-  --panel-border: #dbe2ec;
-  --text: #0f172a;
-  --text-muted: #5b6b82;
-  --cyan: #0e7490;
-  --cyan-soft: #e0f6fb;
-  --green: #047857;
-  --green-soft: #e1f8ef;
-  --amber: #b45309;
-  --amber-soft: #fdf1dd;
-  --violet: #6d28d9;
-  --violet-soft: #f1e9fc;
-  --shadow: 0 20px 40px -14px rgba(15, 23, 42, 0.14);
+  --bg: #fbf8ee;
+  --paper: #ffffff;
+  --ink: #20150f;
+  --soft: #3b2b22;
+  --muted: #5a4a40;
+  --line: #e6d9bf;
+  --red: #b91c1c;
+  --red-text: #a11a1a;
+  --red-soft: #fcebe7;
+  --red-edge: #e9b8ae;
+  --term: #0b5d73;
+  --term-soft: #e1f3f8;
+  --cream: #F3EEE2;
+  --shadow: 0 10px 30px -12px rgba(120, 40, 20, 0.18);
   --radius: 18px;
+
+  --font-body: 'Assistant', system-ui, sans-serif;
+  --font-display: 'Rubik', system-ui, sans-serif;
+  --font-code: 'JetBrains Mono', monospace;
 }
 
 body.dark {
-  /* Night Ops */
   --bg: #090d16;
-  --grid-line: rgba(34, 211, 238, 0.06);
-  --card: #10182a;
-  --panel-border: rgba(34, 211, 238, 0.16);
-  --text: #e7edf6;
-  --text-muted: #8493ac;
-  --cyan: #22d3ee;
-  --cyan-soft: rgba(34, 211, 238, 0.12);
-  --green: #34d399;
-  --green-soft: rgba(52, 211, 153, 0.12);
-  --amber: #fbbf24;
-  --amber-soft: rgba(251, 191, 36, 0.12);
-  --violet: #a78bfa;
-  --violet-soft: rgba(167, 139, 250, 0.12);
+  --paper: #10182a;
+  --ink: #e7edf6;
+  --muted: #8493ac;
+  --line: rgba(34, 211, 238, 0.16);
+  --red: #f87171;
+  --red-text: #f87171;
+  --red-soft: rgba(248, 113, 113, 0.12);
+  --red-edge: rgba(248, 113, 113, 0.3);
+  --term: #22d3ee;
+  --term-soft: rgba(34, 211, 238, 0.12);
+  --cream: #141f36;
   --shadow: 0 20px 50px -14px rgba(0, 0, 0, 0.6);
 }
 
-* { box-sizing: border-box; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  margin: 0;
-  font-family: 'Assistant', 'Heebo', sans-serif;
   background-color: var(--bg);
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 42px 42px;
-  color: var(--text);
+  color: var(--ink);
+  font-family: var(--font-body);
   transition: background-color 0.3s ease, color 0.3s ease;
   padding-bottom: 60px;
   font-size: 18px;
 }
 
 :focus-visible {
-  outline: 2px solid var(--cyan);
+  outline: 2px solid var(--red);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* Bi-directional & Framed Text Helpers */
 .en {
   direction: ltr;
   unicode-bidi: isolate;
@@ -82,20 +75,20 @@ body {
   max-width: 100%;
   padding: 2px 8px;
   margin: 0 3px;
-  background: var(--cyan-soft);
-  border: 1px solid var(--panel-border);
+  background: var(--term-soft);
+  border: 1.5px solid var(--term);
   border-radius: 6px;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-code);
   font-size: 0.9em;
   font-weight: 700;
-  color: var(--cyan);
+  color: var(--term);
   vertical-align: middle;
   line-height: 1.2;
   white-space: nowrap;
 }
 
 .mono {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-code);
   direction: ltr;
   unicode-bidi: isolate;
   display: inline-block;
@@ -103,20 +96,13 @@ body {
 
 /* ============ HEADER ============ */
 header.hero{
-  padding: 10px 0 12px;
-  border-bottom: 1px solid rgba(185, 28, 28, 0.22);
-  position: relative;
-  background: linear-gradient(160deg, #fbf3e2 0%, #f7ecd6 55%, #f9efdb 100%);
-}
-
-header.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle at 12% 20%, rgba(185, 28, 28, 0.08), transparent 40%),
-    radial-gradient(circle at 88% 75%, rgba(217, 119, 6, 0.10), transparent 45%);
-  pointer-events: none;
+  padding: 16px 0;
+  border-bottom: 2px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .header-inner {
@@ -134,16 +120,15 @@ header.hero::before {
 .header-main-group {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   flex-wrap: wrap;
 }
 
 .hero-avatar-spin{
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid #b91c1c;
-  box-shadow: 0 0 12px rgba(185, 28, 28, 0.4), 0 0 0 3px #FFFFFF;
+  border: 3px solid var(--red);
   object-fit: cover;
   flex-shrink: 0;
   background: #ffffff;
@@ -162,16 +147,15 @@ header.hero::before {
 }
 
 .eyebrow{
-  display:inline-block;
-  font-family:'JetBrains Mono',monospace;
-  font-size:10.5px;
+  display: inline-block;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing:1px;
-  color:#b91c1c;
-  background:rgba(185, 28, 28, 0.1);
-  border:1px solid rgba(185, 28, 28, 0.3);
-  padding:2px 8px;
-  border-radius:12px;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1.5px solid var(--red-edge);
+  padding: 2px 8px;
+  border-radius: 12px;
   direction: ltr;
   width: fit-content;
   unicode-bidi: isolate;
@@ -185,20 +169,20 @@ header.hero::before {
 }
 
 h1.title{
-  font-size: 20px;
+  font-size: 1.35rem;
   margin: 0;
-  color: #b91c1c;
-  line-height: 1.1;
-  font-family: 'Rubik', 'Assistant', sans-serif;
-  font-weight: 900;
+  color: var(--red-text);
+  line-height: 1.3;
+  font-family: var(--font-display);
+  font-weight: 800;
 }
 
 .subtitle{
-  font-size: 12px;
+  font-size: 0.85rem;
   max-width: 750px;
   margin: 0;
-  color: #c2410c;
-  font-weight: 700;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .header-actions-group {
@@ -210,20 +194,19 @@ h1.title{
 
 .protocol-row {
   display: flex;
-  gap: 4px;
+  gap: 6px;
   flex-wrap: wrap;
 }
 
 .protocol-chip {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9.5px;
-  font-weight: 600;
-  color: #b91c1c;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(185, 28, 28, 0.3);
-  padding: 2px 6px;
-  border-radius: 5px;
-  letter-spacing: 0.3px;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1.5px solid var(--red-edge);
+  padding: 2px 8px;
+  border-radius: 6px;
   direction: ltr;
   unicode-bidi: isolate;
 }
@@ -235,32 +218,31 @@ h1.title{
 }
 
 .nav-btn {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10.5px;
+  font-family: var(--font-code);
+  font-size: 0.8rem;
   font-weight: 700;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 8px 14px;
+  border-radius: 12px;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 5px;
   cursor: pointer;
-  border: none;
-  transition: transform 0.18s ease, opacity 0.18s ease;
-  letter-spacing: 0.2px;
+  border: 2px solid var(--line);
+  transition: border-color 0.2s, transform 0.18s ease;
 }
 
-.nav-btn:hover { transform: translateY(-1px); }
+.nav-btn:hover { border-color: var(--red); transform: translateY(-1px); }
 
 .nav-btn.outline {
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(185, 28, 28, 0.4);
-  color: #b91c1c;
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .nav-btn.solid {
-  background: linear-gradient(120deg, #dc2626, #b91c1c);
-  color: #fff5f0;
+  background: var(--red);
+  color: #fff;
+  border-color: transparent;
   box-shadow: 0 4px 12px -3px rgba(185, 28, 28, 0.5);
 }
 
@@ -273,34 +255,34 @@ h1.title{
 
 .panel {
   position: relative;
-  background: var(--card);
-  padding: 30px 30px 28px;
+  background: var(--paper);
+  padding: 30px;
   margin-bottom: 30px;
   border-radius: var(--radius);
-  border: 1px solid var(--panel-border);
+  border: 2px solid var(--line);
   box-shadow: var(--shadow);
 }
 
-/* ============ TABS (מותאם לשורה אחת) ============ */
+/* ============ TABS ============ */
 .tabs-nav {
   display: flex;
   gap: 8px;
   flex-wrap: nowrap;
   margin-bottom: 25px;
-  border-bottom: 2px solid var(--panel-border);
+  border-bottom: 2px solid var(--line);
   padding-bottom: 14px;
   overflow-x: auto;
 }
 
 .tab-btn {
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 800;
-  padding: 10px 14px;
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  padding: 10px 16px;
+  border: 2px solid var(--line);
+  border-radius: 12px;
   background: var(--bg);
-  color: var(--text-muted);
+  color: var(--muted);
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
@@ -312,13 +294,13 @@ h1.title{
 }
 
 .tab-btn:hover {
-  background: var(--cyan-soft);
-  color: var(--cyan);
-  border-color: var(--cyan);
+  background: var(--paper);
+  color: var(--red-text);
+  border-color: var(--red);
 }
 
 .tab-btn.active {
-  background: linear-gradient(120deg, #dc2626, #b91c1c);
+  background: var(--red);
   color: #ffffff;
   border-color: transparent;
   box-shadow: 0 6px 16px rgba(185, 28, 28, 0.35);
@@ -361,14 +343,14 @@ h1.title{
   height: 230px;
   object-fit: cover;
   border-radius: 14px;
-  border: 2px solid var(--panel-border);
+  border: 2px solid var(--line);
   box-shadow: var(--shadow);
 }
 
 .meta-box {
   background: var(--bg);
-  border: 1px solid var(--panel-border);
-  border-radius: 12px;
+  border: 2px solid var(--line);
+  border-radius: 14px;
   padding: 18px;
 }
 
@@ -377,18 +359,18 @@ h1.title{
   justify-content: space-between;
   align-items: center;
   padding: 10px 0;
-  border-bottom: 1px dashed var(--panel-border);
-  font-size: 16px;
+  border-bottom: 1.5px dashed var(--line);
+  font-size: 1rem;
 }
 
 .meta-item:last-child { border-bottom: none; }
 
-.meta-label { font-weight: 700; color: var(--text-muted); }
+.meta-label { font-weight: 700; color: var(--muted); }
 
 .meta-val { 
-  font-family: 'JetBrains Mono', monospace; 
+  font-family: var(--font-code); 
   font-weight: 800; 
-  color: var(--cyan); 
+  color: var(--term); 
   direction: ltr;
   unicode-bidi: isolate;
 }
@@ -400,11 +382,11 @@ h1.title{
 }
 
 .comp-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 30px;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 800;
   margin: 0;
-  color: var(--text);
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -412,17 +394,18 @@ h1.title{
 }
 
 .section-box {
-  background: var(--bg);
-  border-right: 4px solid var(--cyan);
-  border-radius: 8px;
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-right: 6px solid var(--red);
+  border-radius: 14px;
   padding: 20px;
 }
 
 .section-box h4 {
   margin: 0 0 10px 0;
-  font-family: 'Rubik', sans-serif;
-  font-size: 20px;
-  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--red-text);
   display: flex;
   align-items: center;
   gap: 6px;
@@ -430,10 +413,10 @@ h1.title{
 
 .section-box p {
   margin: 0;
-  font-size: 18px;
+  font-size: 1rem;
   line-height: 1.8;
-  font-weight: 600;
-  color: var(--text);
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .spec-grid {
@@ -443,29 +426,30 @@ h1.title{
 }
 
 .spec-card {
-  background: var(--card);
-  border: 1px solid var(--panel-border);
-  border-radius: 10px;
+  background: var(--paper);
+  border: 2px solid var(--line);
+  border-radius: 12px;
   padding: 14px;
 }
 
 .spec-card span {
   display: block;
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--muted);
   margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .spec-card b {
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--text);
+  color: var(--ink);
 }
 
 /* ============ מבדק, חלונית מורה ורפלקציה ============ */
 .teacher-access-card {
-  background: linear-gradient(135deg, rgba(109, 40, 217, 0.1), rgba(14, 116, 144, 0.1));
-  border: 2px dashed var(--violet);
+  background: var(--cream);
+  border: 2px dashed var(--red);
   border-radius: 14px;
   padding: 16px 20px;
   margin-bottom: 25px;
@@ -483,63 +467,66 @@ h1.title{
 }
 
 .teacher-icon {
-  font-size: 28px;
-  background: var(--violet-soft);
+  font-size: 1.5rem;
+  background: var(--red-soft);
   width: 50px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid var(--violet);
+  border: 1.5px solid var(--red-edge);
 }
 
 .teacher-title {
-  font-family: 'Rubik', sans-serif;
-  font-size: 19px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
   font-weight: 800;
-  color: var(--violet);
+  color: var(--red-text);
   margin: 0;
 }
 
 .teacher-desc {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 0.85rem;
+  color: var(--muted);
   margin: 2px 0 0;
+  font-weight: 600;
 }
 
 .teacher-btn {
-  background: var(--violet);
+  background: var(--red);
   color: #ffffff;
   border: none;
   padding: 10px 18px;
-  border-radius: 8px;
-  font-family: 'Rubik', sans-serif;
-  font-size: 15px;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
   font-weight: 800;
   cursor: pointer;
   transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 12px rgba(185,28,28,0.25);
 }
 
 .teacher-btn:hover {
-  background: #5b21b6;
+  background: #991b1b;
   transform: translateY(-2px);
 }
 
 .answers-box {
   display: none;
-  background: var(--green-soft);
-  border: 2px solid var(--green);
-  border-radius: 12px;
+  background: #d8f3e6;
+  border: 2px solid #0b6b4a;
+  border-radius: 14px;
   padding: 20px;
   margin-bottom: 25px;
+  color: #063c29;
 }
 
 .answers-box h4 {
   margin: 0 0 12px;
-  color: var(--green);
-  font-size: 20px;
-  font-family: 'Rubik', sans-serif;
+  color: #0b6b4a;
+  font-size: 1.15rem;
+  font-family: var(--font-display);
 }
 
 .answers-list {
@@ -549,7 +536,7 @@ h1.title{
   padding: 0;
   margin: 0;
   list-style: none;
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 700;
 }
 
@@ -557,15 +544,16 @@ h1.title{
   margin-bottom: 22px;
   padding: 20px;
   background: var(--bg);
-  border-radius: 12px;
-  border: 1px solid var(--panel-border);
+  border-radius: 14px;
+  border: 2px solid var(--line);
 }
 
 .quiz-q p {
   font-weight: 800;
-  font-size: 19px;
+  font-size: 1.05rem;
   margin-top: 0;
   margin-bottom: 14px;
+  color: var(--ink);
 }
 
 .quiz-opt {
@@ -573,7 +561,8 @@ h1.title{
   margin: 10px 0;
   cursor: pointer;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 0.95rem;
+  color: var(--muted);
 }
 
 .quiz-opt input {
@@ -584,35 +573,36 @@ h1.title{
 .quiz-feedback {
   margin-top: 10px;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 0.9rem;
   display: none;
 }
 
-.quiz-feedback.correct { color: var(--green); display: block; }
-.quiz-feedback.incorrect { color: #dc2626; display: block; }
+.quiz-feedback.correct { color: #0b6b4a; display: block; }
+.quiz-feedback.incorrect { color: var(--red); display: block; }
 
 #quiz-score-box {
   display: none;
-  background: var(--cyan-soft);
-  border: 2px solid var(--cyan);
+  background: var(--cream);
+  border: 2px solid var(--red);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 14px;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 20px;
+  font-size: 1.15rem;
   font-weight: 800;
+  color: var(--ink);
 }
 
 .reflection-textarea {
   width: 100%;
   min-height: 120px;
-  border-radius: 10px;
-  border: 1px solid var(--panel-border);
-  background: var(--bg);
-  color: var(--text);
+  border-radius: 12px;
+  border: 2px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
   padding: 14px;
   font-family: inherit;
-  font-size: 17px;
+  font-size: 1rem;
   resize: vertical;
 }
 
@@ -623,14 +613,13 @@ h1.title{
   left: 22px;
   width: 46px;
   height: 46px;
-  border: 1px solid rgba(185, 28, 28, 0.35);
+  border: 2px solid var(--line);
   border-radius: 50%;
   cursor: pointer;
-  font-size: 19px;
+  font-size: 1.1rem;
   z-index: 9999;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  color: #b91c1c;
+  background: var(--paper);
+  color: var(--red);
   box-shadow: 0 4px 15px rgba(0,0,0,0.18);
   display: flex;
   align-items: center;
@@ -642,163 +631,165 @@ h1.title{
 
 /* ============ עוזר הפרויקט הצף ============ */
 .bot-widget {
-    position: fixed;
-    bottom: 13px;
-    left: 13px;
-    width: 190px;
-    max-width: calc(100vw - 26px);
-    background: var(--card);
-    color: var(--text);
-    border-radius: 11px;
-    overflow: hidden;
-    box-shadow: 0 11px 24px rgba(0,0,0,0.28);
-    z-index: 9999;
-    animation: floatBot 4s ease-in-out infinite;
-    border: 1px solid var(--panel-border);
-    transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
+  position: fixed;
+  bottom: 13px;
+  left: 13px;
+  width: 210px;
+  max-width: calc(100vw - 26px);
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  animation: floatBot 4s ease-in-out infinite;
+  border: 2px solid var(--line);
+  transition: width 0.25s ease, height 0.25s ease, opacity 0.2s ease;
 }
 
 .bot-widget.collapsed {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    animation: none;
-    cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  animation: none;
+  cursor: pointer;
 }
 
 .bot-widget.collapsed .bot-header, 
 .bot-widget.collapsed .bot-body > *:not(.bot-avatar) {
-    display: none;
+  display: none;
 }
 
 .bot-widget.collapsed .bot-body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 100%;
 }
 
 .bot-widget.collapsed .bot-avatar {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    border: 2px solid var(--cyan);
-    box-shadow: 0 4px 11px rgba(0,0,0,0.3);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: 2px solid var(--red);
+  box-shadow: 0 4px 11px rgba(0,0,0,0.3);
 }
 
 .bot-close {
-    margin-right: auto;
-    background: none;
-    border: none;
-    color: #eaf6fb;
-    cursor: pointer;
-    font-size: 10px;
-    line-height: 1;
-    padding: 1px 2px;
+  margin-right: auto;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  line-height: 1;
+  padding: 1px 4px;
 }
 
 .bot-header {
-    background: linear-gradient(135deg, #0b2540, #062a2e);
-    color: #eaf6fb;
-    padding: 8px 10px;
-    font-weight: 800;
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    letter-spacing: 0.2px;
-    cursor: pointer;
+  background: var(--red);
+  color: #fff;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  letter-spacing: 0.2px;
+  cursor: pointer;
 }
 
 .bot-header .dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #34d399;
-    box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
-    animation: pulse 1.8s ease-in-out infinite;
-    flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 0 2px rgba(52,211,153,0.25);
+  animation: pulse 1.8s ease-in-out infinite;
+  flex-shrink: 0;
 }
 
-.bot-body { padding: 11px; }
+.bot-body { padding: 12px; }
 
 .bot-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: block;
-    margin: 0 auto 7px auto;
-    object-fit: cover;
-    border: 2px solid var(--cyan);
-    box-shadow: 0 0 0 3px var(--cyan-soft);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 7px auto;
+  object-fit: cover;
+  border: 2px solid var(--red);
+  box-shadow: 0 0 0 3px var(--red-soft);
 }
 
 .bot-body p.greet {
-    margin: 0 0 6px 0;
-    font-weight: 800;
-    text-align: center;
-    font-size: 10px;
+  margin: 0 0 6px 0;
+  font-weight: 800;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--ink);
 }
 
 .bot-body .lead {
-    font-weight: 600;
-    font-size: 9px;
-    text-align: center;
-    color: var(--text-muted);
-    margin: 0 0 7px;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-align: center;
+  color: var(--muted);
+  margin: 0 0 7px;
 }
 
 .bot-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    justify-content: center;
-    margin-bottom: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  margin-bottom: 8px;
 }
 
 .bot-chip {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 7px;
-    font-weight: 600;
-    color: var(--text-muted);
-    background: var(--bg);
-    border: 1px solid var(--panel-border);
-    padding: 2px 5px;
-    border-radius: 4px;
-    direction: ltr;
-    unicode-bidi: isolate;
+  font-family: var(--font-code);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--red-text);
+  background: var(--red-soft);
+  border: 1px solid var(--red-edge);
+  padding: 2px 5px;
+  border-radius: 4px;
+  direction: ltr;
+  unicode-bidi: isolate;
 }
 
 .bot-btn {
-    display: block;
-    text-align: center;
-    padding: 7px;
-    background: var(--green);
-    color: #06231a;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: 800;
-    font-size: 9.5px;
-    font-family: 'JetBrains Mono', monospace;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    direction: ltr;
-    unicode-bidi: isolate;
+  display: block;
+  text-align: center;
+  padding: 7px;
+  background: var(--red);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  font-family: var(--font-code);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  direction: ltr;
+  unicode-bidi: isolate;
+  box-shadow: 0 4px 10px rgba(185,28,28,0.2);
 }
 
 .bot-btn:hover {
-    opacity: 0.88;
-    transform: scale(1.02);
+  opacity: 0.88;
+  transform: scale(1.02);
 }
 
 footer {
-  background: var(--card);
-  border-top: 1px solid var(--panel-border);
-  color: var(--text-muted);
+  background: var(--paper);
+  border-top: 2px solid var(--line);
+  color: var(--muted);
   font-weight: 700;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-family: var(--font-code);
+  font-size: 0.85rem;
   text-align: center;
   padding: 26px;
   margin-top: 50px;
@@ -822,10 +813,10 @@ footer {
 }
 
 @media (max-width: 640px) {
-  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 16px; }
+  .darkBtn { top: 12px; left: 12px; width: 40px; height: 40px; font-size: 1rem; }
   .panel { padding: 18px 12px; }
-  .tab-btn { width: 100%; justify-content: center; font-size: 16px; }
-  .bot-avatar { width: 68px; height: 68px; }
+  .tab-btn { width: 100%; justify-content: center; font-size: 0.9rem; }
+  .bot-avatar { width: 50px; height: 50px; }
   .bot-widget:not(.collapsed) {
     width: calc(100vw - 44px);
     max-height: 70vh;
@@ -841,19 +832,17 @@ footer {
 
 <header class="hero">
   <div class="header-inner">
-    <!-- קבוצה ימנית: אוואטר, תג, כותרת וסאבטייטל -->
     <div class="header-main-group">
       <img src="https://lh3.googleusercontent.com/d/1oIkZlLHZWtFgoDblyxziTALQZwsyxAOo" alt="אווטר" class="hero-avatar-spin">
       <div class="header-text-content">
         <div class="eyebrow" dir="ltr">session: transport_layer_mastery // layer4.osi.local</div>
         <div class="title-row">
-          <h1 class="title">שיעור מטורלל: שכבה 4 - שכבת התעבורה</h1>
+          <h1 class="title">שכבה 4 - שכבת התעבורה</h1>
         </div>
         <p class="subtitle">איך הדאטה מגיע בדיוק לאפליקציה הנכונה? מסע עומק בטאבים: מקטעים, דאטאגרמות, פורטים ו-TCP מול UDP!</p>
       </div>
     </div>
 
-    <!-- קבוצה שמאלית: פרוטוקולים וכפתורי ניווט בשורה אחת צפופה -->
     <div class="header-actions-group">
       <div class="protocol-row">
         <span class="protocol-chip">TCP</span>
@@ -862,7 +851,7 @@ footer {
         <span class="protocol-chip">SEGMENT</span>
       </div>
       <nav class="navbar" style="margin: 0;">
-        <a class="nav-btn outline" href="#tabs-section"> למעבדה</a>
+        <a class="nav-btn outline" href="#tabs-section">למעבדה</a>
         <a class="nav-btn solid" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">אקדמיית השותפים</a>
       </nav>
     </div>
@@ -873,7 +862,6 @@ footer {
 
   <div class="panel">
 
-    <!-- סרגל הטאבים (בשורה אחת) -->
     <div class="tabs-nav">
       <button class="tab-btn active" onclick="openTab(event, 'intro')">תפקיד שכבה 4</button>
       <button class="tab-btn" onclick="openTab(event, 'ports')">פורטים ושקעים <span class="en">Sockets</span></button>
@@ -883,7 +871,7 @@ footer {
       <button class="tab-btn" onclick="openTab(event, 'reflection')">רפלקציה אישית</button>
     </div>
 
-    <!-- TAB 1: תפקיד השכבה -->
+    <!-- TAB 1 -->
     <div id="intro" class="tab-content active">
       <div class="component-grid">
         <div class="comp-media">
@@ -896,7 +884,7 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">  שכבת התעבורה <span class="en">Transport Layer</span> - חלוקה למקטעים</h3>
+          <h3 class="comp-title">שכבת התעבורה <span class="en">Transport Layer</span> - חלוקה למקטעים</h3>
           
           <div class="section-box">
             <p>
@@ -904,8 +892,8 @@ footer {
             </p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">  תפקידים מרכזיים בשכבה 4</h4>
+          <div class="section-box">
+            <h4>תפקידים מרכזיים בשכבה 4</h4>
             <div class="spec-grid">
               <div class="spec-card"><span><span class="en">Segmentation</span></span><b>פירוק מידע גדול לחלקים קטנים</b></div>
               <div class="spec-card"><span><span class="en">Multiplexing</span></span><b>ניהול שיחות של כמה אפליקציות במקביל</b></div>
@@ -914,8 +902,8 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);">  טיפ מטורלל למצטייני הרשתות</h4>
+          <div class="section-box">
+            <h4>טיפ למצטייני הרשתות</h4>
             <p>
               אם לא היינו מחלקים את המידע למקטעים, קובץ אחד של <span class="en">1GB</span> שהייתם מורידים היה חוסם את כל כבל הרשת בבית שלכם, ולא הייתם יכולים לשלוח אפילו הודעת וואטסאפ קטנה במקביל!
             </p>
@@ -924,7 +912,7 @@ footer {
       </div>
     </div>
 
-    <!-- TAB 2: פורטים ושקעים -->
+    <!-- TAB 2 -->
     <div id="ports" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -937,7 +925,7 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">  פורטים <span class="en">Ports</span> וסוקטים <span class="en">Sockets</span></h3>
+          <h3 class="comp-title">פורטים <span class="en">Ports</span> וסוקטים <span class="en">Sockets</span></h3>
           
           <div class="section-box">
             <p>
@@ -945,8 +933,8 @@ footer {
             </p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">  פורטים מפורסמים שחובה להכיר <span class="en">Well-Known Ports</span></h4>
+          <div class="section-box">
+            <h4>פורטים מפורסמים שחובה להכיר <span class="en">Well-Known Ports</span></h4>
             <div class="spec-grid">
               <div class="spec-card"><span><span class="en">HTTP / HTTPS</span></span><b><span class="en">Port 80</span> / <span class="en">Port 443</span></b></div>
               <div class="spec-card"><span><span class="en">DNS</span> תרגום שמות</span><b><span class="en">Port 53</span> - <span class="en">UDP/TCP</span></b></div>
@@ -955,8 +943,8 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);"> טיפ מטורלל של השותפים</h4>
+          <div class="section-box">
+            <h4>טיפ של השותפים</h4>
             <p>
               כשאתם פותחים טאב בדפדפן, המחשב שלכם מנפיק פורט מקור אקראי גבוה <span class="en">Ephemeral Port</span> למשל <span class="en">52431</span> ופונה לפורט יעד מוכר בשרת למשל <span class="en">443</span>. ככה השרת יודע בדיוק לאיזה טאב ספציפי להחזיר את התשובה!
             </p>
@@ -965,7 +953,7 @@ footer {
       </div>
     </div>
 
-    <!-- TAB 3: TCP -->
+    <!-- TAB 3 -->
     <div id="tcp" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -978,16 +966,16 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title">🤝 פרוטוקול <span class="en">TCP</span> - <span class="en">Transmission Control Protocol</span></h3>
+          <h3 class="comp-title">פרוטוקול <span class="en">TCP</span> - <span class="en">Transmission Control Protocol</span></h3>
           
           <div class="section-box">
             <p>
-              <span class="en">TCP</span> הוא פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קבצים, מיילים).
+              <span class="en">TCP</span> هو פרוטוקול מוכוון חיבור <span class="en">Connection-Oriented</span>. לפני שהוא שולח בייט אחד של דאטה, הוא יוצר קשר עם הצד השני, מוודא שהוא ערני ומוכן לקבל מידע. אם מקטע הלך לאיבוד בדרך - <span class="en">TCP</span> מזהה זאת ומשדר אותו מחדש! מתאים ליישומים שבהם אסור לאבד אפילו ביט אחד (אתרי אינטרנט, העברות כספיות, קבצים, מיילים).
             </p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);">🛠️ מנגנוני הליבה של <span class="en">TCP</span></h4>
+          <div class="section-box">
+            <h4>מנגנוני הליבה של <span class="en">TCP</span></h4>
             <div class="spec-grid">
               <div class="spec-card"><span>לחיצת יד משולשת</span><b><span class="en">SYN &rarr; SYN-ACK &rarr; ACK</span></b></div>
               <div class="spec-card"><span>אישור קבלה <span class="en">ACK</span></span><b><span class="en">Acknowledgment Number</span></b></div>
@@ -996,8 +984,8 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);"> טיפ מטורלל של השותפים</h4>
+          <div class="section-box">
+            <h4>טיפ של השותפים</h4>
             <p>
               זוכרים את לחיצת היד? <span class="en">SYN</span> "אחי אפשר לדבר?", <span class="en">SYN-ACK</span> "כן אחי בכיף!", <span class="en">ACK</span> "סגור, מתחילים לשלוח!". בלי 3 הצעדים האלה - אין תקשורת <span class="en">TCP</span>!
             </p>
@@ -1006,7 +994,7 @@ footer {
       </div>
     </div>
 
-    <!-- TAB 4: UDP -->
+    <!-- TAB 4 -->
     <div id="udp" class="tab-content">
       <div class="component-grid">
         <div class="comp-media">
@@ -1019,7 +1007,7 @@ footer {
           </div>
         </div>
         <div class="comp-details">
-          <h3 class="comp-title"> פרוטוקול <span class="en">UDP</span> - <span class="en">User Datagram Protocol</span></h3>
+          <h3 class="comp-title">פרוטוקול <span class="en">UDP</span> - <span class="en">User Datagram Protocol</span></h3>
           
           <div class="section-box">
             <p>
@@ -1027,8 +1015,8 @@ footer {
             </p>
           </div>
 
-          <div class="section-box" style="border-color: var(--green);">
-            <h4 style="color: var(--green);"> תכונות מפתח של <span class="en">UDP</span></h4>
+          <div class="section-box">
+            <h4>תכונות מפתח של <span class="en">UDP</span></h4>
             <div class="spec-grid">
               <div class="spec-card"><span><span class="en">Header</span> קל משקל</span><b><span class="en">8 Bytes</span> בלבד לעומת <span class="en">20</span> ב-<span class="en">TCP</span></b></div>
               <div class="spec-card"><span>אפס השהיה <span class="en">Latency</span></span><b>אין לחיצת יד בתחילה</b></div>
@@ -1037,8 +1025,8 @@ footer {
             </div>
           </div>
 
-          <div class="section-box" style="border-color: var(--amber);">
-            <h4 style="color: var(--amber);"> טיפ מטורלל של השותפים</h4>
+          <div class="section-box">
+            <h4>טיפ של השותפים</h4>
             <p>
               בדיחת רשת קלאסית: "הייתי מספר לכם בדיחה על <span class="en">UDP</span>... אבל לא אכפת לי אם ירדתם לסוף דעתי או אם היא בכלל הגיעה אליכם!" 😂
             </p>
@@ -1047,9 +1035,8 @@ footer {
       </div>
     </div>
 
-    <!-- TAB 5: מבדק ידע -->
+    <!-- TAB 5 -->
     <div id="quiz" class="tab-content">
-      <!-- חלונית מעוצבת למורה -->
       <div class="teacher-access-card">
         <div class="teacher-info">
           <div class="teacher-icon">👨‍🏫</div>
@@ -1058,12 +1045,11 @@ footer {
             <p class="teacher-desc">לחיצה כאן וכניסה עם סיסמת מורה תחשוף את תשובות המבדק.</p>
           </div>
         </div>
-        <button class="teacher-btn" onclick="revealTeacherAnswers()">🔑 כניסת מורה</button>
+        <button class="teacher-btn" onclick="revealTeacherAnswers()">כניסת מורה</button>
       </div>
 
-      <!-- חלונית תשובות שחשופה למורה בלבד -->
       <div id="teacher-answers-box" class="answers-box">
-        <h4>🔓 תשובות נכונות למורה:</h4>
+        <h4>תשובות נכונות למורה:</h4>
         <ul class="answers-list">
           <li>1. <span class="en">b - Segment</span></li>
           <li>2. <span class="en">c - Port 80</span></li>
@@ -1080,7 +1066,6 @@ footer {
       
       <div id="quiz-score-box"></div>
 
-      <!-- שאלה 1 -->
       <div class="quiz-q">
         <p>1. מהי יחידת המידע <span class="en">PDU</span> של פרוטוקול <span class="en">TCP</span> בשכבה 4?</p>
         <label class="quiz-opt"><input type="radio" name="q1" value="a"> <span class="en">Packet</span> - חבילה</label>
@@ -1090,7 +1075,6 @@ footer {
         <div id="q1-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 2 -->
       <div class="quiz-q">
         <p>2. באיזה פורט משתמש פרוטוקול <span class="en">HTTP</span> לגלישה לא מאובטחת?</p>
         <label class="quiz-opt"><input type="radio" name="q2" value="a"> <span class="en">Port 443</span></label>
@@ -1100,7 +1084,6 @@ footer {
         <div id="q2-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 3 -->
       <div class="quiz-q">
         <p>3. איזה פרוטוקול מתאים יותר למשחק מחשב מרובה משתתפים בזמן אמת <span class="en">FPS/Gaming</span>?</p>
         <label class="quiz-opt"><input type="radio" name="q3" value="a"> <span class="en">UDP</span> - בגלל המהירות והיעדר ההשהיה</label>
@@ -1110,7 +1093,6 @@ footer {
         <div id="q3-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 4 -->
       <div class="quiz-q">
         <p>4. מה מכילה הגדרת סוקט <span class="en">Socket</span> ברשת?</p>
         <label class="quiz-opt"><input type="radio" name="q4" value="a"> כתובת <span class="en">MAC</span> בלבד</label>
@@ -1120,7 +1102,6 @@ footer {
         <div id="q4-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 5 -->
       <div class="quiz-q">
         <p>5. מהו הסדר הנכון של מנגנון לחיצת היד המשולשת <span class="en">3-Way Handshake</span> ב-<span class="en">TCP</span>?</p>
         <label class="quiz-opt"><input type="radio" name="q5" value="a"> <span class="en">ACK &rarr; SYN &rarr; SYN-ACK</span></label>
@@ -1130,7 +1111,6 @@ footer {
         <div id="q5-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 6 -->
       <div class="quiz-q">
         <p>6. מהו טווח הפורטים השמורים מראש <span class="en">Well-Known Ports</span>?</p>
         <label class="quiz-opt"><input type="radio" name="q6" value="a"> <span class="en">0 – 1023</span></label>
@@ -1140,7 +1120,6 @@ footer {
         <div id="q6-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 7 -->
       <div class="quiz-q">
         <p>7. איזה גודל הדר <span class="en">Header</span> קטן וחסכוני יותר?</p>
         <label class="quiz-opt"><input type="radio" name="q7" value="a"> <span class="en">TCP</span> - בגודל <span class="en">20 Bytes</span></label>
@@ -1150,7 +1129,6 @@ footer {
         <div id="q7-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 8 -->
       <div class="quiz-q">
         <p>8. מה קורה במידה וחבילת <span class="en">UDP</span> נעלמת בדרך ליעד?</p>
         <label class="quiz-opt"><input type="radio" name="q8" value="a"> השרת שולח בקשת שידור חוזר ישירות</label>
@@ -1160,7 +1138,6 @@ footer {
         <div id="q8-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 9 -->
       <div class="quiz-q">
         <p>9. באיזה פורט משתמש שירות <span class="en">DNS</span> לתרגום שמות מתחם לכתובות <span class="en">IP</span>?</p>
         <label class="quiz-opt"><input type="radio" name="q9" value="a"> <span class="en">Port 22</span></label>
@@ -1170,7 +1147,6 @@ footer {
         <div id="q9-fb" class="quiz-feedback"></div>
       </div>
 
-      <!-- שאלה 10 -->
       <div class="quiz-q">
         <p>10. מנגנון החלון הנע <span class="en">Sliding Window</span> ב-<span class="en">TCP</span> נועד בעיקר עבור:</p>
         <label class="quiz-opt"><input type="radio" name="q10" value="a"> הצפנת המידע בתוך המקטעים</label>
@@ -1180,10 +1156,10 @@ footer {
         <div id="q10-fb" class="quiz-feedback"></div>
       </div>
 
-      <button class="nav-btn solid" onclick="checkQuiz()" style="margin-top: 10px;">בדוק תשובות וחשב ציון 🎯</button>
+      <button class="nav-btn solid" onclick="checkQuiz()" style="margin-top: 10px;">בדוק תשובות וחשב ציון</button>
     </div>
 
-    <!-- TAB 6: רפלקציה -->
+    <!-- TAB 6 -->
     <div id="reflection" class="tab-content">
       <h3 class="comp-title" style="margin-bottom: 20px;">רפלקציה וסיכום אישי</h3>
       
@@ -1194,8 +1170,8 @@ footer {
         </p>
       </div>
 
-      <div class="section-box" style="border-color: var(--violet); background: var(--bg);">
-        <h4 style="color: var(--violet);">התובנות שלי מהשיעור:</h4>
+      <div class="section-box">
+        <h4>התובנות שלי מהשיעור:</h4>
         <textarea class="reflection-textarea" placeholder="כתבו כאן בקצרה: מה החידוש הכי גדול שלמדתם היום על פורטים, TCP ו-UDP?"></textarea>
       </div>
     </div>
@@ -1206,35 +1182,35 @@ footer {
 
 <!-- 🤖 צומת העוזר הצף -->
 <div class="bot-widget collapsed" id="botWidget" onclick="expandBot(event)">
-    <div class="bot-header" onclick="toggleBot(event)">
-        <span class="dot"></span> <span class="mono">NODE: DAN-GPT // ONLINE</span>
-        <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
+  <div class="bot-header" onclick="toggleBot(event)">
+    <span class="dot"></span> <span class="mono">NODE: DAN-GPT // ONLINE</span>
+    <button class="bot-close" onclick="toggleBot(event)" title="סגור/פתח">✕</button>
+  </div>
+
+  <div class="bot-body">
+    <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
+
+    <p class="greet">שלום תלמידים</p>
+    <p class="lead">אני דן <span class="en">GPT</span>, עוזר השיעור והפרויקט שלכם בשכבה 4. אפשר להיעזר בי ב:</p>
+
+    <div class="bot-chips">
+      <span class="bot-chip">TCP vs UDP</span>
+      <span class="bot-chip">Port Numbers</span>
+      <span class="bot-chip">3-Way Handshake</span>
+      <span class="bot-chip">Sockets</span>
+      <span class="bot-chip">Segment</span>
+      <span class="bot-chip">Datagram</span>
+      <span class="bot-chip">Wireshark</span>
     </div>
 
-    <div class="bot-body">
-        <img class="bot-avatar" src="https://lh3.googleusercontent.com/d/1fzqv93VKIW_VT8-e1HdJxBmbU2sFnwlb" alt="דן GPT עוזר הפרויקט">
-
-        <p class="greet">שלום תלמידים 👋</p>
-        <p class="lead">אני דן <span class="en">GPT</span>, עוזר השיעור והפרויקט שלכם בשכבה 4. אפשר להיעזר בי ב:</p>
-
-        <div class="bot-chips">
-            <span class="bot-chip">TCP vs UDP</span>
-            <span class="bot-chip">Port Numbers</span>
-            <span class="bot-chip">3-Way Handshake</span>
-            <span class="bot-chip">Sockets</span>
-            <span class="bot-chip">Segment</span>
-            <span class="bot-chip">Datagram</span>
-            <span class="bot-chip">Wireshark</span>
-        </div>
-
-        <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
-            $ connect --gem dan-gpt
-        </a>
-    </div>
+    <a class="bot-btn" href="https://gemini.google.com/gem/13FFjtbW5S3yg0EE1qBEQiP8GEMwoepKu?usp=sharing" target="_blank" rel="noopener">
+      $ connect --gem dan-gpt
+    </a>
+  </div>
 </div>
 
 <footer>
-  <span class="mono">session: שכבה 4 - שכבת התעבורה // אקדמיית השותפים // TCP, UDP, Ports & Sockets // בהצלחה 💪</span>
+  <span class="mono">session: שכבה 4 - שכבת התעבורה // אקדמיית השותפים // TCP, UDP, Ports & Sockets // בהצלחה</span>
 </footer>
 
 <script>
@@ -1297,10 +1273,10 @@ function checkQuiz() {
 
     if (selected && selected.value === quizAnswers[qKey].correct) {
       score++;
-      fb.innerHTML = `נכון מאוד! ✅ ${quizAnswers[qKey].text}`;
+      fb.innerHTML = `נכון מאוד! ${quizAnswers[qKey].text}`;
       fb.className = 'quiz-feedback correct';
     } else {
-      fb.innerHTML = `לא מדויק ❌ תשובה נכונה: ${quizAnswers[qKey].text}`;
+      fb.innerHTML = `לא מדויק. תשובה נכונה: ${quizAnswers[qKey].text}`;
       fb.className = 'quiz-feedback incorrect';
     }
   }
@@ -1310,11 +1286,11 @@ function checkQuiz() {
   
   let gradeMessage = "";
   if (finalGrade === 100) {
-    gradeMessage = "🏆 אלוף/ה! שליטה מלאה בשכבה 4!";
+    gradeMessage = "אלוף! שליטה מלאה בשכבה 4!";
   } else if (finalGrade >= 70) {
-    gradeMessage = "👏 עבודה טובה מאוד! יש הבנה איתנה של החומר.";
+    gradeMessage = "עבודה טובה מאוד! יש הבנה איתנה של החומר.";
   } else {
-    gradeMessage = "💪 כדאי לחזור קצת על הטאבים ולנסות שוב!";
+    gradeMessage = "כדאי לחזור קצת על הטאבים ולנסות שוב!";
   }
 
   scoreBox.innerHTML = `הציון שלך: <strong>${finalGrade} / 100</strong> (${score} מתוך ${totalQuestions} תשובות נכונות)<br>${gradeMessage}`;
@@ -1327,11 +1303,9 @@ function revealTeacherAnswers() {
   if (password === "sahar") {
     alert("סיסמא אושרה! התשובות הנכונות מוצגות כעת.");
     
-    // הצגת תיבת התשובות
     const answersBox = document.getElementById('teacher-answers-box');
     answersBox.style.display = 'block';
 
-    // סימון התשובות הנכונות במבדק
     for (let i = 1; i <= 10; i++) {
       const qKey = 'q' + i;
       const correctVal = quizAnswers[qKey].correct;
